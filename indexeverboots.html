@@ -1,0 +1,1329 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<title>Everboots Creator Hub</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: dark "oiled leather" band on top with the nav, then a work-surface ground of cards.
+   Signature detail: stitched (dashed) welt borders on the cards that matter most. */
+:root {
+  --bg: #efede9;
+  --surface: #fbfaf8;
+  --surface-2: #f4f1ec;
+  --ink: #1f1a16;
+  --muted: #6b625a;
+  --line: #ddd6cd;
+  --band: #2a1f17;
+  --band-ink: #f3ebe1;
+  --band-muted: #c9b8a6;
+  --copper: #b45f25;
+  --copper-ink: #ffffff;
+  --copper-soft: #f6e6d8;
+  --stitch: #c99a63;
+  --good: #2f7a45;
+  --good-soft: #e3f1e6;
+  --warn: #a8670b;
+  --warn-soft: #fbefd9;
+  --bad: #b3322a;
+  --bad-soft: #f9e2df;
+  --chart: #b45f25;
+  --chart-fill: rgba(180, 95, 37, .14);
+  --shadow: 0 1px 2px rgba(40, 28, 18, .06), 0 2px 10px rgba(40, 28, 18, .05);
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #171310; --surface: #211b17; --surface-2: #2a231d; --ink: #f1e9df; --muted: #b3a597; --line: #3b322a;
+    --band: #0f0c0a; --band-ink: #f3ebe1; --band-muted: #b9a693; --copper: #d77a3a; --copper-ink: #1a120c; --copper-soft: #3a261a;
+    --stitch: #a7804f; --good: #6cc285; --good-soft: #1f3324; --warn: #e3a94a; --warn-soft: #3a2c14; --bad: #ef7d73; --bad-soft: #3d1f1c;
+    --chart: #e08a4c; --chart-fill: rgba(224, 138, 76, .16); --shadow: 0 1px 2px rgba(0,0,0,.3); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #171310; --surface: #211b17; --surface-2: #2a231d; --ink: #f1e9df; --muted: #b3a597; --line: #3b322a;
+  --band: #0f0c0a; --band-ink: #f3ebe1; --band-muted: #b9a693; --copper: #d77a3a; --copper-ink: #1a120c; --copper-soft: #3a261a;
+  --stitch: #a7804f; --good: #6cc285; --good-soft: #1f3324; --warn: #e3a94a; --warn-soft: #3a2c14; --bad: #ef7d73; --bad-soft: #3d1f1c;
+  --chart: #e08a4c; --chart-fill: rgba(224, 138, 76, .16); --shadow: 0 1px 2px rgba(0,0,0,.3); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+h1, h2, h3, h4 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: .01em; }
+p { margin: 0; }
+a { color: var(--copper); }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Header band */
+.band { background: var(--band); color: var(--band-ink); }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px 10px; flex-wrap: wrap; }
+.brand { display: flex; flex-direction: column; line-height: 1; }
+.brand b { font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: .08em; }
+.brand span { font-size: 11.5px; color: var(--band-muted); letter-spacing: .06em; text-transform: uppercase; margin-top: 4px; }
+.top-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.btn-band { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 6px; border: 1px solid rgba(243,235,225,.22); background: transparent; color: var(--band-ink); font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.btn-band:hover { background: rgba(243,235,225,.08); }
+.btn-band.solid { background: var(--copper); border-color: var(--copper); color: var(--copper-ink); }
+.seg { display: inline-flex; border: 1px solid rgba(243,235,225,.22); border-radius: 6px; overflow: hidden; }
+.seg button { border: 0; background: transparent; color: var(--band-muted); padding: 6px 10px; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--band-ink); color: var(--band); }
+nav.tabs { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; border-top: 1px solid rgba(243,235,225,.1); }
+nav.tabs::-webkit-scrollbar { display: none; }
+nav.tabs a { flex: none; padding: 11px 12px; color: var(--band-muted); text-decoration: none; font-size: 13.5px; font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; }
+nav.tabs a:hover { color: var(--band-ink); }
+nav.tabs a[aria-current="page"] { color: var(--band-ink); border-bottom-color: var(--copper); }
+.count { display: inline-block; min-width: 18px; padding: 0 5px; margin-left: 4px; border-radius: 9px; background: var(--copper); color: var(--copper-ink); font-size: 11px; text-align: center; line-height: 18px; }
+.hero { padding-block: 26px 30px; }
+.hero h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; text-transform: uppercase; letter-spacing: .02em; line-height: 1.02; }
+.hero p { color: var(--band-muted); max-width: 62ch; margin-top: 8px; }
+
+/* Page */
+main { padding-block: 24px 48px; }
+.view { display: grid; gap: 18px; }
+.grid-2 { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.grid-2 > *, .stack > * { min-width: 0; }
+.stack { display: grid; gap: 18px; align-content: start; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; box-shadow: var(--shadow); min-width: 0; }
+.card.welt { border: 1.5px dashed var(--stitch); outline: 4px solid var(--surface); outline-offset: -6px; }
+.card h2 { font-size: 22px; font-weight: 700; }
+.card h3 { font-size: 18px; font-weight: 700; }
+.card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.small { font-size: 12.5px; color: var(--muted); }
+.eyebrow { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--copper); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; font-size: 13.5px; cursor: pointer; text-decoration: none; color: var(--ink); }
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: var(--copper); border-color: var(--copper); color: var(--copper-ink); }
+.btn.primary:hover { filter: brightness(1.06); }
+.btn.dark { background: var(--band); border-color: var(--band); color: var(--band-ink); }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--copper); font-weight: 600; cursor: pointer; font-size: 13px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--band); color: var(--band-ink); border-color: var(--band); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 5px; background: var(--surface-2); border: 1px solid var(--line); font-size: 12px; font-weight: 600; }
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 700; }
+.pill.good { background: var(--good-soft); color: var(--good); }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); }
+.pill.ex { background: var(--copper-soft); color: var(--copper); letter-spacing: .04em; text-transform: uppercase; font-size: 10.5px; }
+.note-strip { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 14px; border-radius: 8px; background: var(--warn-soft); color: var(--ink); font-size: 13px; border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent); }
+.note-strip b { color: var(--warn); }
+ol.check { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+ol.check li::marker { font-family: var(--mono); font-size: 12px; color: var(--copper); font-weight: 600; }
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+
+.focus { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: start; padding: 22px; }
+.focus .boot-ico { width: 72px; height: 72px; }
+.focus .boot-ico svg { width: 48px; height: 48px; }
+.focus-main p { max-width: 62ch; }
+.focus-stats { display: grid; gap: 12px; padding-left: 18px; border-left: 1px solid var(--line); min-width: 150px; }
+.focus-stats .val { font-family: var(--mono); font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.star { color: var(--copper); }
+.chip[aria-pressed="true"] .star { color: var(--stitch); }
+.cta { background: var(--copper); color: var(--copper-ink); border: 0; }
+.cta p { opacity: .92; margin-top: 4px; font-size: 14px; }
+.cta .btn { margin-top: 12px; background: var(--copper-ink); color: var(--copper); border-color: var(--copper-ink); }
+.cta-dark { background: var(--band); color: var(--band-ink); border: 0; }
+.cta-dark p { color: var(--band-muted); margin-top: 4px; font-size: 14px; }
+.cta-dark .btn { margin-top: 12px; }
+
+.hooks { display: grid; gap: 2px; }
+.hook-row { display: flex; justify-content: space-between; gap: 10px; align-items: start; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.hook-row:first-child { border-top: 0; }
+.copy { flex: none; border: 0; background: none; color: var(--copper); font-weight: 700; font-size: 12.5px; cursor: pointer; padding: 2px 4px; }
+
+/* KPIs + chart */
+.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 9px; padding: 12px 14px; }
+.kpi .lbl { font-size: 12px; color: var(--muted); font-weight: 600; }
+.kpi .val { font-family: var(--mono); font-size: 21px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.delta { font-size: 11.5px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.delta.up { color: var(--good); } .delta.down { color: var(--bad); }
+.chart-wrap { position: relative; }
+.chart-wrap svg { display: block; width: 100%; height: auto; }
+.chart-tip { position: absolute; pointer-events: none; background: var(--band); color: var(--band-ink); font-size: 12px; padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%); font-family: var(--mono); }
+.vid { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: start; }
+.vid:first-of-type { border-top: 0; }
+.rank { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--copper); line-height: 1; }
+.vid .meta { font-size: 12.5px; color: var(--muted); }
+.vid .money { font-family: var(--mono); font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.quote { font-style: italic; color: var(--ink); margin-top: 3px; }
+
+/* Scripts */
+.scripts { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; align-items: start; }
+.script { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); min-width: 0; }
+.script-top { padding: 14px 16px 10px; display: grid; gap: 6px; }
+.script-top .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.script-num { font-family: var(--mono); font-size: 12px; color: var(--copper); font-weight: 600; }
+.why { padding: 10px 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.why b { color: var(--ink); display: block; font-size: 12.5px; }
+.hookbox { background: var(--copper-soft); padding: 12px 16px; border-top: 1px solid var(--line); }
+.hookbox .small { font-weight: 600; }
+.hookbox p { font-size: 17px; font-weight: 600; margin-top: 2px; line-height: 1.35; }
+.beat { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 10px; padding: 9px 16px; border-top: 1px solid var(--line); font-size: 14px; }
+.beat .t { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 2px; }
+.beat .show { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.caption { padding: 10px 16px; border-top: 1px solid var(--line); font-size: 13px; }
+.script-foot { padding: 10px 16px 14px; border-top: 1px solid var(--line); display: flex; gap: 8px; flex-wrap: wrap; }
+
+.builder { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 18px; align-items: start; }
+.field { display: grid; gap: 6px; }
+.field > label, .field > .lbl { font-weight: 700; font-size: 13px; }
+.form-grid { display: grid; gap: 14px; }
+textarea, input[type="text"], input[type="email"], input[type="url"], input[type="number"], select { width: 100%; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); padding: 9px 10px; font-size: 14px; }
+textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+.mono { font-family: var(--mono); font-size: 12.5px; }
+
+/* Products */
+.prod-head { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.boot-ico { width: 56px; height: 56px; flex: none; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); display: grid; place-items: center; }
+.boot-ico svg { width: 36px; height: 36px; }
+.spec { border: 2px solid var(--ink); border-radius: 6px; padding: 12px 14px; background: var(--surface); }
+.spec h3 { font-size: 24px; font-weight: 800; text-transform: uppercase; border-bottom: 6px solid var(--ink); padding-bottom: 4px; }
+.spec-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.spec-row:last-child { border-bottom: 0; }
+.spec-row b { font-weight: 700; }
+.say-row { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13.5px; }
+.say-row:first-of-type { border-top: 0; }
+.careful { border-left: 4px solid var(--warn); }
+.qa { border-top: 1px solid var(--line); padding: 10px 0; }
+.qa:first-of-type { border-top: 0; }
+.qa b { display: block; font-size: 14px; }
+
+/* Claims table */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--display); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+td.no { color: var(--bad); }
+td.yes { color: var(--good); }
+
+/* Checker */
+.gauge { display: grid; justify-items: center; gap: 2px; padding-block: 4px 10px; }
+.gauge svg { width: 220px; max-width: 100%; height: auto; }
+.gauge .num { font-family: var(--mono); font-size: 40px; font-weight: 600; margin-top: -78px; font-variant-numeric: tabular-nums; }
+.gauge .num small { font-size: 16px; }
+.gauge .verdict { font-weight: 700; margin-top: 18px; }
+.flag { border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 14px; display: grid; gap: 6px; background: var(--surface); }
+.flag.high { border-left-color: var(--bad); }
+.flag.low { border-left-color: var(--muted); }
+.flag .fix { background: var(--surface-2); border-radius: 6px; padding: 8px 10px; font-size: 13px; }
+.flag-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.flags { display: grid; gap: 10px; }
+
+.update { border-top: 1px solid var(--line); padding: 14px 0; display: grid; gap: 6px; }
+.update:first-of-type { border-top: 0; padding-top: 0; }
+.date { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* Modal */
+.modal-back { position: fixed; inset: 0; background: rgba(15, 10, 6, .55); display: grid; place-items: center; padding: 16px; padding-top: calc(16px + env(safe-area-inset-top, 0px)); z-index: 50; }
+.modal { background: var(--surface); color: var(--ink); border-radius: 12px; width: min(680px, 100%); max-height: calc(100% - 20px); overflow: auto; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+.modal-head { display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-bottom: 14px; }
+.x { border: 1px solid var(--line); background: var(--surface); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: 16px; flex: none; }
+.verdict-box { border-radius: 8px; padding: 10px 12px; font-size: 14px; }
+.verdict-box.good { background: var(--good-soft); }
+.verdict-box.bad { background: var(--bad-soft); }
+.verdict-box b { display: block; }
+.mini-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 8px; margin-top: 12px; }
+.mini-kpis > div { padding: 8px 10px; border-left: 1px solid var(--line); }
+.mini-kpis > div:first-child { border-left: 0; }
+.mini-kpis .val { font-family: var(--mono); font-weight: 600; font-size: 15px; }
+.reason { background: var(--surface-2); border-radius: 7px; padding: 9px 12px; font-size: 13.5px; }
+.reason b { display: block; }
+.form2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.form2 .full { grid-column: 1 / -1; }
+.opt { font-weight: 400; color: var(--muted); font-size: 12px; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--band); color: var(--band-ink); padding: 9px 16px; border-radius: 8px; font-weight: 600; font-size: 13.5px; z-index: 60; }
+footer { padding-block: 20px 36px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .grid-2, .builder { grid-template-columns: minmax(0, 1fr); }
+  .focus { grid-template-columns: minmax(0, 1fr); }
+  .focus .boot-ico { display: none; }
+  .focus-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 12px; min-width: 0; }
+}
+@media (max-width: 520px) {
+  .form2 { grid-template-columns: minmax(0, 1fr); }
+  .mini-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mini-kpis > div:nth-child(3) { border-left: 0; }
+  .mini-kpis > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .scripts { grid-template-columns: minmax(0, 1fr); }
+  .spec-row { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="band">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><b>EVERBOOTS</b><span data-i18n="brandSub">Creator Hub · TikTok Shop</span></div>
+      <div class="top-actions">
+        <button class="btn-band solid" type="button" id="applyTop" data-i18n="applyBtn">Apply for a retainer</button>
+        <a class="btn-band" href="https://shop.tiktok.com/us/k/everboots" target="_blank" rel="noopener" data-i18n="tiktokShop">TikTok Shop ↗</a>
+        <div class="seg" role="group" aria-label="Language">
+          <button type="button" id="langEn" aria-pressed="true">EN</button>
+          <button type="button" id="langEs" aria-pressed="false">ES</button>
+        </div>
+        <button class="btn-band" type="button" id="themeBtn" aria-label="Switch light or dark">◐</button>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+    <div class="hero">
+      <h1 id="heroTitle"></h1>
+      <p id="heroSub"></p>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="main"></main>
+
+<footer class="wrap">
+  <p id="footText"></p>
+</footer>
+
+<div id="modalRoot"></div>
+
+<script>
+/* ------------------------------------------------------------------
+   Settings. When this page is hosted outside claude.ai (for example on
+   GitHub Pages), set APPLY_ENDPOINT to a Google Apps Script web app URL
+   and retainer applications will POST there as JSON. Left empty, the
+   form gives the creator a copyable application instead.
+------------------------------------------------------------------- */
+const APPLY_ENDPOINT = "";
+const SHOW_DOLLARS = true;
+const DATA_AS_OF = new Date(2026, 9, 31); // Oct 31, 2026
+const EXAMPLE_DATA = true;
+
+let lang = "en";
+try { lang = localStorage.getItem("eb-lang") || "en"; } catch (e) {}
+try { const th = localStorage.getItem("eb-theme"); if (th) document.documentElement.dataset.theme = th; } catch (e) {}
+
+const T = (o) => (o && typeof o === "object" && ("en" in o)) ? (o[lang] ?? o.en) : o;
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* ---------------------------- UI strings ---------------------------- */
+const UI = {
+  brandSub: { en: "Creator Hub · TikTok Shop", es: "Centro de creadores · TikTok Shop" },
+  applyBtn: { en: "Apply for a retainer", es: "Solicitar un retainer" },
+  tiktokShop: { en: "TikTok Shop ↗", es: "TikTok Shop ↗" },
+  nav: {
+    home: { en: "Home", es: "Inicio" }, selling: { en: "What's selling", es: "Qué se vende" }, scripts: { en: "Scripts", es: "Guiones" },
+    products: { en: "Products", es: "Productos" }, claims: { en: "Claims guide", es: "Guía de claims" }, check: { en: "Check a script", es: "Revisar un guion" },
+    updates: { en: "Policy updates", es: "Actualizaciones" }
+  },
+  hero: {
+    home: [{ en: "Welcome, Everboots creators", es: "Bienvenidos, creadores de Everboots" }, { en: "Everything you need to make boot videos that sell, and stay inside TikTok Shop policy.", es: "Todo lo que necesitas para hacer videos de botas que venden, sin salirte de las políticas de TikTok Shop." }],
+    selling: [{ en: "What's selling", es: "Qué se vende" }, { en: "Everboots sales and the videos driving them, by product.", es: "Ventas de Everboots y los videos que las impulsan, por producto." }],
+    scripts: [{ en: "Scripts that sell", es: "Guiones que venden" }, { en: "This week's picks, plus a builder to make your own. Every line is written to stay inside TikTok Shop policy.", es: "Las selecciones de esta semana y un generador para crear el tuyo. Cada línea está escrita para cumplir las políticas de TikTok Shop." }],
+    products: [{ en: "Product facts", es: "Datos de producto" }, { en: "Specs straight from the Everboots product pages, and how to say them on camera.", es: "Especificaciones tomadas de las páginas de Everboots y cómo decirlas en cámara." }],
+    claims: [{ en: "Claims guide", es: "Guía de claims" }, { en: "What you can say about safety, waterproofing and comfort, and what gets videos pulled.", es: "Lo que puedes decir sobre seguridad, impermeabilidad y comodidad, y lo que hace que bajen tus videos." }],
+    check: [{ en: "Check a script", es: "Revisar un guion" }, { en: "Paste what you'll say or write. See what could get it flagged before you post.", es: "Pega lo que vas a decir o escribir. Mira qué podría marcarse antes de publicar." }],
+    updates: [{ en: "Policy updates", es: "Actualizaciones de políticas" }, { en: "TikTok Shop rule changes that affect creators, plus Everboots news and claims reminders.", es: "Cambios en las reglas de TikTok Shop que afectan a creadores, más noticias de Everboots y recordatorios de claims." }]
+  },
+  copy: { en: "Copy", es: "Copiar" }, copied: { en: "Copied", es: "Copiado" },
+  exampleTag: { en: "Example", es: "Ejemplo" },
+  exampleStrip: { en: "<b>Heads up:</b> top videos are real Cruva data. The sales totals and chart above them are still example numbers.", es: "<b>Ojo:</b> los mejores videos son datos reales de Cruva. Los totales de ventas y la gráfica todavía son cifras de ejemplo." },
+  foot: { en: "Everboots Creator Hub · Product facts from everboots.com, prices from TikTok Shop, video data from Cruva. Risk scores are keyword estimates, not TikTok decisions.", es: "Centro de creadores de Everboots · Datos de producto de everboots.com, precios de TikTok Shop, datos de video de Cruva. El riesgo es una estimación por palabras clave, no una decisión de TikTok." }
+};
+const S = (k) => T(UI[k]);
+
+/* ---------------------------- Products ---------------------------- */
+const PRODUCTS = [
+  {
+    id: "ultra", name: "Ultra Dry Boot", price: 99.99, focus: true,
+    short: { en: "Waterproof 6\" work boot. Copper nubuck or dark brown full-grain leather.", es: "Bota de trabajo impermeable de 6\". Nobuk cobre o piel plena café oscuro." },
+    tags: { en: ["Waterproof", "Soft toe", "6-inch", "Slip-resistant outsole", "Sizes 6–12", "Regular (D)"], es: ["Impermeable", "Puntera suave", "6 pulgadas", "Suela resistente al deslizamiento", "Tallas 6–12", "Regular (D)"] },
+    spec: [
+      [{ en: "Upper", es: "Corte" }, { en: "Waterproof leather (copper nubuck or dark brown full-grain)", es: "Piel impermeable (nobuk cobre o piel plena café oscuro)" }],
+      [{ en: "Lining", es: "Forro" }, { en: "Waterproof membrane quarter lining", es: "Forro con membrana impermeable" }],
+      [{ en: "Stitching", es: "Costuras" }, { en: "Waterproof thread throughout", es: "Hilo impermeable en todo el calzado" }],
+      [{ en: "Outsole / midsole", es: "Suela / entresuela" }, { en: "Slip-resistant rubber over cushioned PU", es: "Hule resistente al deslizamiento sobre PU acolchado" }],
+      [{ en: "Comfort", es: "Comodidad" }, { en: "Padded collar and tongue, Hi-Poly insole", es: "Cuello y lengüeta acolchados, plantilla Hi-Poly" }],
+      [{ en: "Toe", es: "Puntera" }, { en: "Soft toe (not a safety toe)", es: "Puntera suave (no es de seguridad)" }],
+      [{ en: "Guarantee", es: "Garantía" }, { en: "90-day Tough As Ever guarantee", es: "Garantía Tough As Ever de 90 días" }]
+    ],
+    say: { en: ["Waterproof leather with a waterproof membrane lining", "Waterproof stitching all the way around", "Slip-resistant rubber outsole", "Padded collar and tongue", "Backed by a 90-day guarantee"], es: ["Piel impermeable con forro de membrana impermeable", "Costuras impermeables en toda la bota", "Suela de hule resistente al deslizamiento", "Cuello y lengüeta acolchados", "Respaldada por una garantía de 90 días"] },
+    careful: { en: ["It's a soft toe. Never call it steel toe or safety toe.", "Say \"waterproof,\" not \"100% waterproof\" or \"you'll never get wet.\"", "\"Slip-resistant,\" not \"non-slip\" or \"slip-proof.\""], es: ["Es puntera suave. Nunca digas que es de acero o de seguridad.", "Di \"impermeable\", no \"100% impermeable\" ni \"nunca te vas a mojar\".", "\"Resistente al deslizamiento\", no \"antiderrapante total\"."] },
+    show: { en: ["Pour water over the boot or step into a shallow puddle, then show a dry sock.", "Close-up of the WATERPROOF woven label and the stitching.", "Flex the sole to show the tread."], es: ["Echa agua sobre la bota o pisa un charco poco profundo y muestra el calcetín seco.", "Primer plano de la etiqueta WATERPROOF y las costuras.", "Dobla la suela para mostrar el dibujo."] }
+  },
+  {
+    id: "tanks", name: "Tank S Boot", price: 79.99,
+    short: { en: "Steel toe 6\" work boot with Goodyear welt construction.", es: "Bota de trabajo de 6\" con casquillo de acero y construcción Goodyear welt." },
+    tags: { en: ["Steel toe", "ASTM F2413-11 I/75 C/75", "Goodyear welt", "6-inch", "Sizes 7–14", "Regular (D)"], es: ["Casquillo de acero", "ASTM F2413-11 I/75 C/75", "Goodyear welt", "6 pulgadas", "Tallas 7–14", "Regular (D)"] },
+    spec: [
+      [{ en: "Toe", es: "Puntera" }, { en: "Steel toe, certified ASTM F2413-11 I/75 C/75 (impact and compression)", es: "Casquillo de acero certificado ASTM F2413-11 I/75 C/75 (impacto y compresión)" }],
+      [{ en: "Construction", es: "Construcción" }, { en: "Goodyear welt", es: "Goodyear welt (cosida)" }],
+      [{ en: "Upper", es: "Corte" }, { en: "Soft nubuck leather", es: "Piel nobuk suave" }],
+      [{ en: "Support", es: "Soporte" }, { en: "Steel shank for arch support", es: "Cambrillón de acero para soporte del arco" }],
+      [{ en: "Outsole", es: "Suela" }, { en: "Rubber with the signature Tank tread", es: "Hule con el dibujo Tank característico" }],
+      [{ en: "Water", es: "Agua" }, { en: "Not waterproof", es: "No es impermeable" }],
+      [{ en: "Guarantee", es: "Garantía" }, { en: "90-day Tough As Ever guarantee", es: "Garantía Tough As Ever de 90 días" }]
+    ],
+    say: { en: ["ASTM-certified steel toe, rated I/75 C/75", "Goodyear welt construction, so the sole is stitched on", "Steel shank for arch support on ladders and stairs", "Rubber outsole with the Tank tread", "Backed by a 90-day guarantee"], es: ["Casquillo de acero certificado ASTM, clasificación I/75 C/75", "Construcción Goodyear welt: la suela va cosida", "Cambrillón de acero para soporte en escaleras", "Suela de hule con el dibujo Tank", "Respaldada por una garantía de 90 días"] },
+    careful: { en: ["Don't say \"OSHA approved.\" OSHA doesn't approve boots. Say \"ASTM-certified steel toe.\"", "No electrical hazard (EH), puncture-resistant or composite claims. The listing doesn't make them.", "It's not waterproof. Don't do water tests with this boot."], es: ["No digas \"aprobada por OSHA\". OSHA no aprueba botas. Di \"casquillo de acero certificado ASTM\".", "Nada de riesgo eléctrico (EH), antiperforación ni composite. La ficha no lo dice.", "No es impermeable. No hagas pruebas de agua con esta bota."] },
+    show: { en: ["Knock on the toe cap so viewers hear the steel.", "Show the stitched welt where the sole meets the upper.", "Climb a ladder or stairs on camera."], es: ["Toca la puntera para que se escuche el acero.", "Muestra la costura donde la suela se une al corte.", "Sube una escalera en cámara."] }
+  },
+  {
+    id: "weldor", name: "Weldor Boot", price: 87.99,
+    short: { en: "Moc toe boot in 2.0mm oiled full-grain leather. Brown or black.", es: "Bota moc toe en piel plena engrasada de 2.0 mm. Café o negra." },
+    tags: { en: ["Moc toe", "Soft toe", "Water repellent", "Lightweight EVA/rubber sole", "Sizes 6–13", "Regular (D) + Extra Wide (EE)"], es: ["Moc toe", "Puntera suave", "Repelente al agua", "Suela ligera EVA/hule", "Tallas 6–13", "Regular (D) + Extra ancha (EE)"] },
+    spec: [
+      [{ en: "Upper", es: "Corte" }, { en: "2.0mm oiled full-grain leather, unlined for breathability", es: "Piel plena engrasada de 2.0 mm, sin forro para mayor ventilación" }],
+      [{ en: "Sole", es: "Suela" }, { en: "Lightweight EVA/rubber, shock-absorbing", es: "EVA/hule ligera que absorbe impactos" }],
+      [{ en: "Tread", es: "Dibujo" }, { en: "Anti-slip tread pattern", es: "Dibujo antideslizante" }],
+      [{ en: "Water", es: "Agua" }, { en: "Water repellent (not waterproof)", es: "Repelente al agua (no impermeable)" }],
+      [{ en: "Toe", es: "Puntera" }, { en: "Soft moc toe", es: "Moc toe suave" }],
+      [{ en: "Widths", es: "Anchos" }, { en: "Regular (D) and Extra Wide (EE)", es: "Regular (D) y extra ancha (EE)" }],
+      [{ en: "Guarantee", es: "Garantía" }, { en: "90-day Tough As Ever guarantee", es: "Garantía Tough As Ever de 90 días" }]
+    ],
+    say: { en: ["2-millimeter oiled full-grain leather", "Lightweight sole that absorbs shock", "Unlined, so it breathes in the heat", "Comes in Extra Wide (EE)", "Works on the job and off it"], es: ["Piel plena engrasada de 2 milímetros", "Suela ligera que absorbe impactos", "Sin forro, respira en el calor", "Viene en extra ancha (EE)", "Sirve para el trabajo y para salir"] },
+    careful: { en: ["It's water repellent, not waterproof. Say \"handles a splash,\" never \"waterproof.\"", "Soft toe. No safety-toe claims.", "Don't compare it to other moc toe brands by name."], es: ["Es repelente al agua, no impermeable. Di \"aguanta salpicaduras\", nunca \"impermeable\".", "Puntera suave. Nada de puntera de seguridad.", "No la compares con otras marcas moc toe por nombre."] },
+    show: { en: ["Transition shot: job site to going out, same boots.", "Bend the boot to show how flexible the sole is.", "Show the EE box or label if you wear wide."], es: ["Transición: de la obra a salir, mismas botas.", "Dobla la bota para mostrar lo flexible de la suela.", "Muestra la caja o etiqueta EE si usas ancho."] }
+  },
+  {
+    id: "sierra", name: "Sierra Boot", price: 89.99, isNew: true,
+    short: { en: "Everboots' first women's work boot. Waterproof dark brown full-grain leather.", es: "La primera bota de trabajo para mujer de Everboots. Piel plena café oscuro impermeable." },
+    tags: { en: ["Women's", "Waterproof", "Soft toe", "6-inch", "Slip-resistant sole", "Sizes 5.5–11"], es: ["Mujer", "Impermeable", "Puntera suave", "6 pulgadas", "Suela resistente al deslizamiento", "Tallas 5.5–11"] },
+    spec: [
+      [{ en: "Upper", es: "Corte" }, { en: "Dark brown full-grain leather", es: "Piel plena café oscuro" }],
+      [{ en: "Water", es: "Agua" }, { en: "Waterproof, keeps feet dry in wet conditions", es: "Impermeable, mantiene los pies secos en condiciones húmedas" }],
+      [{ en: "Outsole", es: "Suela" }, { en: "Slip-resistant sole for stable footing", es: "Suela resistente al deslizamiento para pisar firme" }],
+      [{ en: "Toe", es: "Puntera" }, { en: "Soft toe", es: "Puntera suave" }],
+      [{ en: "Height / width", es: "Altura / ancho" }, { en: "6 inches, regular width", es: "6 pulgadas, ancho regular" }],
+      [{ en: "Sizes", es: "Tallas" }, { en: "Women's 5.5–11", es: "Mujer 5.5–11" }],
+      [{ en: "Guarantee", es: "Garantía" }, { en: "90-day Tough As Ever guarantee", es: "Garantía Tough As Ever de 90 días" }]
+    ],
+    say: { en: ["Made for women, sized 5.5 to 11", "Waterproof full-grain leather", "Slip-resistant sole", "6-inch height", "Backed by a 90-day guarantee"], es: ["Hecha para mujer, tallas 5.5 a 11", "Piel plena impermeable", "Suela resistente al deslizamiento", "Altura de 6 pulgadas", "Respaldada por una garantía de 90 días"] },
+    careful: { en: ["Soft toe. Don't call it a safety boot.", "Don't say \"finally a boot that fits women\" as a knock on other brands. Talk about your own fit.", "Sizes are women's sizes. Don't give men's-to-women's conversions."], es: ["Puntera suave. No digas que es bota de seguridad.", "No digas \"por fin una bota para mujer\" como crítica a otras marcas. Habla de cómo te queda a ti.", "Las tallas son de mujer. No des conversiones de hombre a mujer."] },
+    show: { en: ["A full shift outfit check: boots on, walking the site.", "Water on the toe, then a dry sock.", "Side-by-side fit shot with your work pants."], es: ["Outfit de jornada completa: botas puestas, caminando en la obra.", "Agua en la puntera y luego el calcetín seco.", "Toma de cómo queda con tu pantalón de trabajo."] }
+  }
+];
+const P = (id) => PRODUCTS.find(p => p.id === id);
+
+const QA = [
+  [{ en: "Are these steel toe?", es: "¿Son de casquillo de acero?" }, { en: "Only Tank S (and Miner) are steel toe, certified ASTM F2413-11 I/75 C/75. Ultra Dry, Weldor, Tank and Sierra are soft toe.", es: "Solo Tank S (y Miner) tienen casquillo de acero, certificado ASTM F2413-11 I/75 C/75. Ultra Dry, Weldor, Tank y Sierra son de puntera suave." }],
+  [{ en: "Are they waterproof?", es: "¿Son impermeables?" }, { en: "Ultra Dry and Sierra are waterproof. Weldor is water repellent. Tank and Tank S are not waterproof.", es: "Ultra Dry y Sierra son impermeables. Weldor es repelente al agua. Tank y Tank S no son impermeables." }],
+  [{ en: "How do they fit?", es: "¿Cómo quedan de talla?" }, { en: "Everboots says sizing is similar to other major boot brands. Weldor and Miner also come in Extra Wide (EE). Point people to the size chart on the listing.", es: "Everboots dice que la talla es similar a otras marcas grandes. Weldor y Miner también vienen en extra ancha (EE). Dirige a la tabla de tallas del listado." }],
+  [{ en: "What if they fall apart?", es: "¿Y si se rompen?" }, { en: "The 90-day Tough As Ever guarantee covers the outsole coming apart, leather ripping from normal wear, or the upper and outsole separating.", es: "La garantía Tough As Ever de 90 días cubre si la suela se despega, si la piel se rompe por uso normal o si el corte y la suela se separan." }],
+  [{ en: "Where's the link?", es: "¿Dónde está el link?" }, { en: "Always: \"It's in the orange cart.\" Never send people to the website, a code or your DMs.", es: "Siempre: \"Está en el carrito naranja.\" Nunca mandes a la página web, a un código ni a tus mensajes." }],
+  [{ en: "Where are they made?", es: "¿Dónde se fabrican?" }, { en: "Don't guess. If you don't know, say you'll check, and ask the Everboots team.", es: "No adivines. Si no sabes, di que vas a revisar y pregunta al equipo de Everboots." }]
+];
+
+/* ---------------------------- Example sales data ---------------------------- */
+function rng(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+const SALES = {};
+const SALES_CFG = {
+  ultra: { base: 2650, gpm: 27.4, seed: 11, ch: { gmv: 18.4, units: 17.9, views: 9.6, gpm: 8.0, vids: 12.2, creators: 9.1, aov: 0.4 } },
+  tanks: { base: 1880, gpm: 24.1, seed: 23, ch: { gmv: 6.2, units: 5.8, views: -3.4, gpm: 9.9, vids: 4.1, creators: 2.7, aov: 0.3 } },
+  weldor: { base: 1360, gpm: 21.3, seed: 37, ch: { gmv: -7.5, units: -8.1, views: -12.0, gpm: 5.1, vids: -2.2, creators: -4.0, aov: 0.6 } },
+  sierra: { base: 690, gpm: 31.8, seed: 41, ch: { gmv: 64.0, units: 61.2, views: 48.3, gpm: 10.6, vids: 71.0, creators: 55.4, aov: 1.7 } }
+};
+for (const p of PRODUCTS) {
+  const c = SALES_CFG[p.id], r = rng(c.seed), days = [];
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(DATA_AS_OF); d.setDate(d.getDate() - i);
+    const trend = 1 + (29 - i) / 29 * (c.ch.gmv / 200);
+    const wk = [0.92, 0.95, 1, 1.02, 1.04, 1.14, 1.08][d.getDay()];
+    const spike = r() > 0.93 ? 1.45 : 1;
+    const gmv = Math.round(c.base * trend * wk * spike * (0.82 + r() * 0.36));
+    const units = Math.round(gmv / (p.price * (0.86 + r() * 0.04)));
+    const views = Math.round(gmv / c.gpm * 1000 * (0.9 + r() * 0.2));
+    const aff = Math.round(gmv * (0.62 + r() * 0.12));
+    const posted = Math.round(c.base / 38 * (0.7 + r() * 0.6));
+    days.push({ d, gmv, aff, units, views, posted });
+  }
+  const sum = (k) => days.reduce((a, x) => a + x[k], 0);
+  SALES[p.id] = { days, gmv: sum("gmv"), units: sum("units"), views: sum("views"), posted: sum("posted"), creators: Math.round(sum("posted") * 0.46), ch: c.ch };
+}
+
+/* Top videos from Cruva (Everboots shop, videos tab, Oct 3 – Nov 1, 2026). Update these rows from Cruva each week. */
+const VIDEO_RANGE = { from: new Date(2026, 9, 3), to: new Date(2026, 10, 1) };
+const VIDEOS = {
+  ultra: [
+    { h: "@dulcecandy840", posted: "2026-07-23", id: "7665861661785640205", views: 112323, gmv: 3473.49, units: 41, likes: 278, comments: 11, title: "Botas de trabajo EVERBOOTS #dealsforyoudays #workboots #waterproofboots #everbootsultradrywaterproof" },
+    { h: "@albita_rz", posted: "2026-07-17", id: "7663666584484891918", views: 167879, gmv: 3284.79, units: 38, likes: 242, comments: 10, title: "🚨🚨Ever Boots Ultra Dry Waterproof Work Boots for Men Full Grain Leather Lightweight, Slip-Resistant" },
+    { h: "@athzirinahi", posted: "2026-03-10", id: "7615767790145867021", views: 17968, gmv: 1477.92, units: 17, likes: 57, comments: 6, title: "Botas de alta calidad de travajo para hombre impermeables cómodas suaves ligeras y antideslizantes" },
+    { h: "@dulcecandy840", posted: "2026-09-04", id: "7681710255641857294", views: 30805, gmv: 904.80, units: 11, likes: 65, comments: 3, title: "Botas de trabajo para hombres, Water Proof #toktokshopblackfriday #merrychristmas #backtoschool" },
+    { h: "@dulcecandy840", posted: "2026-06-11", id: "7650315900117060895", views: 33718, gmv: 895.37, units: 11, likes: 101, comments: 6, title: "Botas de trabajo EverBoots #dealsforyoudays #creatorpick #starterpicks #everbootsultradrywaterproof" },
+    { h: "@albita_rz", posted: "2026-06-25", id: "7655535253238402317", views: 18714, gmv: 615.89, units: 7, likes: 52, comments: 1, title: "Botas hechas para ti, que trabajas por más de ocho horas, son botas livianas hechas de cuero..." },
+    { h: "@ismary.orellana", posted: "2026-05-10", id: "7638390518799469838", views: 9379, gmv: 588.24, units: 7, likes: 68, comments: 1, title: "Botas de trabajo para hombre, antideslizantes, contra el agua, cómodas y de buena calidad" },
+    { h: "@latiendadelasfamilias", posted: "2026-08-28", id: "7679171659516955917", views: 9057, gmv: 570.77, units: 8, likes: 27, comments: 2, title: "" }
+  ],
+  tanks: [], weldor: [], sierra: []
+};
+const vidUrl = (v) => `https://www.tiktok.com/${v.h}/video/${v.id}`;
+const vidLink = (v) => `<a class="linkbtn" href="${vidUrl(v)}" target="_blank" rel="noopener">${lang === "es" ? "Ver en TikTok ↗" : "Watch on TikTok ↗"}</a>`;
+const gpmOf = (v) => v.gmv / v.views * 1000;
+const median = (a) => { if (!a.length) return 0; const b = [...a].sort((x, y) => x - y), m = b.length >> 1; return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2; };
+const MEDIAN_GPM = Object.fromEntries(Object.entries(VIDEOS).map(([k, v]) => [k, median(v.map(gpmOf))]));
+const vidTitle = (v) => v.title || (lang === "es" ? "(sin título en Cruva)" : "(no title in Cruva)");
+const vidDate = (v) => { const [y, m, d] = v.posted.split("-").map(Number); return new Date(y, m - 1, d); };
+
+const WORKING = {
+  ultra: { yes: { en: ["Water tests with a dry sock reveal", "Jobs where wet feet are daily: pools, roofing, landscaping", "Showing the WATERPROOF label up close"], es: ["Pruebas de agua con el calcetín seco al final", "Trabajos donde mojarse es diario: albercas, techos, jardinería", "Mostrar de cerca la etiqueta WATERPROOF"] }, no: { en: ["Competitor price comparisons", "\"Lasts forever\" or \"100% waterproof\"", "Links in bio or discount codes"], es: ["Comparar precios con otras marcas", "\"Duran para siempre\" o \"100% impermeables\"", "Links en bio o códigos de descuento"] } },
+  tanks: { yes: { en: ["Knock tests on the steel toe", "End-of-shift honesty on concrete", "Saying the ASTM rating exactly"], es: ["Golpear el casquillo de acero", "Hablar honesto al final del turno en concreto", "Decir la clasificación ASTM exacta"] }, no: { en: ["\"OSHA approved\"", "Pain relief claims", "Water tests (not waterproof)"], es: ["\"Aprobada por OSHA\"", "Claims de alivio de dolor", "Pruebas de agua (no es impermeable)"] } },
+  weldor: { yes: { en: ["Work-to-weekend transitions", "Extra Wide (EE) fit videos", "Flex tests on the light sole"], es: ["Transiciones del trabajo al fin de semana", "Videos de calce extra ancho (EE)", "Doblar la suela ligera"] }, no: { en: ["Calling it waterproof", "Naming other moc toe brands", "Safety-toe claims"], es: ["Decir que es impermeable", "Nombrar otras marcas moc toe", "Claims de puntera de seguridad"] } },
+  sierra: { yes: { en: ["First-week reviews from women in the trades", "Saying your size and how it fit", "Water on the toe, dry sock"], es: ["Reseñas de la primera semana de mujeres en oficios", "Decir tu talla y cómo te quedó", "Agua en la puntera, calcetín seco"] }, no: { en: ["Knocking other brands for not fitting women", "Calling it a safety boot", "Men's-to-women's size conversions"], es: ["Criticar a otras marcas por no quedar a mujeres", "Decir que es bota de seguridad", "Conversiones de talla de hombre a mujer"] } }
+};
+
+/* ---------------------------- Weekly scripts ---------------------------- */
+const SCRIPTS = [
+  { p: "ultra", len: "25–30s", fmt: { en: "On the job, phone on a tripod", es: "En el trabajo, celular en tripié" }, risk: 3,
+    title: { en: "The hose test", es: "La prueba de la manguera" },
+    why: { en: "The #1 Ultra Dry video this period was a water test. We kept the proof and removed the \"never get wet again\" line.", es: "El video #1 de Ultra Dry fue una prueba de agua. Dejamos la prueba y quitamos la frase \"nunca te vas a mojar\"." },
+    model: { en: "Water-test format", es: "Formato de prueba de agua" },
+    hookShow: { en: "On screen: \"60 seconds of water\"", es: "En pantalla: \"60 segundos de agua\"" },
+    hook: { en: "I'm hosing these boots for a full minute. Watch my sock.", es: "Le voy a echar agua a estas botas un minuto completo. Miren mi calcetín." },
+    beats: [
+      ["0–3s", { en: "I'm hosing these boots for a full minute. Watch my sock.", es: "Le voy a echar agua a estas botas un minuto completo. Miren mi calcetín." }, { en: "Boots on, hose already running", es: "Botas puestas, manguera abierta" }],
+      ["3–12s", { en: "Waterproof leather, a waterproof membrane lining, and waterproof stitching all the way around.", es: "Piel impermeable, forro de membrana impermeable y costuras impermeables en toda la bota." }, { en: "Close-up of the WATERPROOF label and seams", es: "Primer plano de la etiqueta WATERPROOF y las costuras" }],
+      ["12–20s", { en: "Okay, sixty seconds. Let's see.", es: "Listo, sesenta segundos. A ver." }, { en: "Pull the boot off, show the dry sock", es: "Quítate la bota y muestra el calcetín seco" }],
+      ["20–28s", { en: "Dry. That's the Ultra Dry. It's in the orange cart.", es: "Seco. Esa es la Ultra Dry. Está en el carrito naranja." }, { en: "Point down to the cart", es: "Señala el carrito" }]
+    ],
+    caption: { en: "60 seconds of water vs. the Ultra Dry 💧 #workboots #waterproofboots #everboots #bluecollar #tiktokshop", es: "60 segundos de agua vs. la Ultra Dry 💧 #botasdetrabajo #botasimpermeables #everboots #obrero #tiktokshop" } },
+  { p: "tanks", len: "20–25s", fmt: { en: "Talking head, boot in hand", es: "Hablando a cámara, bota en mano" }, risk: 3,
+    title: { en: "The knock test", es: "La prueba del golpe" },
+    why: { en: "Knock tests on the steel toe beat every other Tank S format. We swapped \"OSHA approved\" for the actual ASTM rating.", es: "Golpear el casquillo superó a cualquier otro formato de Tank S. Cambiamos \"aprobada por OSHA\" por la clasificación ASTM real." },
+    model: { en: "Knock-test format", es: "Formato de prueba de golpe" },
+    hookShow: { en: "On screen: \"Is it really steel?\"", es: "En pantalla: \"¿De verdad es acero?\"" },
+    hook: { en: "Hear that? That's a real steel toe.", es: "¿Oyen eso? Eso es casquillo de acero de verdad." },
+    beats: [
+      ["0–3s", { en: "Hear that? That's a real steel toe.", es: "¿Oyen eso? Eso es casquillo de acero de verdad." }, { en: "Knock a wrench on the toe cap twice", es: "Golpea la puntera con una llave dos veces" }],
+      ["3–10s", { en: "It's ASTM certified, rated I/75 C/75 for impact and compression.", es: "Está certificado ASTM, clasificación I/75 C/75 para impacto y compresión." }, { en: "Show the rating on the label or listing", es: "Muestra la clasificación en la etiqueta o el listado" }],
+      ["10–17s", { en: "Goodyear welt, so the sole is stitched on, and a steel shank for ladders.", es: "Goodyear welt, la suela va cosida, y cambrillón de acero para escaleras." }, { en: "Run a finger along the welt stitching", es: "Pasa el dedo por la costura" }],
+      ["17–24s", { en: "This is the Tank S. It's in the orange cart.", es: "Esta es la Tank S. Está en el carrito naranja." }, { en: "Boot next to the cart button", es: "Bota junto al botón del carrito" }]
+    ],
+    caption: { en: "Knock test on the Tank S 🔨 ASTM steel toe. #steeltoeboots #workboots #everboots #construction #tiktokshop", es: "Prueba de golpe a la Tank S 🔨 casquillo ASTM. #botasdeacero #botasdetrabajo #everboots #construccion #tiktokshop" } },
+  { p: "tanks", len: "25–30s", fmt: { en: "Selfie in the truck after shift", es: "Selfie en la troca después del turno" }, risk: 4,
+    title: { en: "End-of-shift check-in", es: "Revisión al final del turno" },
+    why: { en: "Honest end-of-shift videos convert with warehouse and site workers. We removed the back-pain claim and kept the honesty.", es: "Los videos honestos al final del turno convierten con trabajadores de almacén y obra. Quitamos el claim de dolor de espalda." },
+    model: { en: "End-of-shift format", es: "Formato de fin de turno" },
+    hookShow: { en: "On screen: \"12 hrs on concrete\"", es: "En pantalla: \"12 hrs en concreto\"" },
+    hook: { en: "Twelve hours on concrete. Here's my honest take on these.", es: "Doce horas en concreto. Esta es mi opinión honesta." },
+    beats: [
+      ["0–3s", { en: "Twelve hours on concrete. Here's my honest take on these.", es: "Doce horas en concreto. Esta es mi opinión honesta." }, { en: "Tired face, boots on the dash or in frame", es: "Cara cansada, botas a cuadro" }],
+      ["3–12s", { en: "Steel toe, steel shank, and the sole is stitched on, not glued.", es: "Casquillo de acero, cambrillón de acero y la suela va cosida, no pegada." }, { en: "Show the sole and stitching", es: "Muestra la suela y la costura" }],
+      ["12–22s", { en: "For me, they've been comfortable my whole shift. That's all I ask.", es: "A mí me han resultado cómodas todo el turno. Es lo único que pido." }, { en: "Walk to the truck", es: "Camina a la troca" }],
+      ["22–28s", { en: "Tank S from Everboots. Orange cart.", es: "Tank S de Everboots. Carrito naranja." }, { en: "Point down", es: "Señala abajo" }]
+    ],
+    caption: { en: "Honest review after a 12-hour shift. #workboots #warehouse #steeltoe #everboots #tiktokshop", es: "Reseña honesta después de 12 horas. #botasdetrabajo #almacen #casquillo #everboots #tiktokshop" } },
+  { p: "weldor", len: "15–20s", fmt: { en: "Transition: work to weekend", es: "Transición: del trabajo al fin de semana" }, risk: 3,
+    title: { en: "Same boots, two looks", es: "Mismas botas, dos looks" },
+    why: { en: "Transitions sell the Weldor to two buyers at once. We fixed the \"waterproof\" line, since the Weldor is water repellent.", es: "Las transiciones venden la Weldor a dos compradores. Corregimos lo de \"impermeable\": la Weldor es repelente al agua." },
+    model: { en: "Work-to-weekend format", es: "Formato del trabajo al fin de semana" },
+    hookShow: { en: "On screen: \"Work → weekend\"", es: "En pantalla: \"Trabajo → fin de semana\"" },
+    hook: { en: "Same boots I framed in all day.", es: "Las mismas botas con las que trabajé todo el día." },
+    beats: [
+      ["0–4s", { en: "Same boots I framed in all day.", es: "Las mismas botas con las que trabajé todo el día." }, { en: "Dusty work clothes, boots in frame", es: "Ropa de trabajo con polvo, botas a cuadro" }],
+      ["4–10s", { en: "Oiled full-grain leather and a light sole that absorbs shock.", es: "Piel plena engrasada y una suela ligera que absorbe impactos." }, { en: "Snap transition to clean jeans", es: "Transición rápida a jeans limpios" }],
+      ["10–16s", { en: "Moc toe, comes in Extra Wide. Weldor, in the orange cart.", es: "Moc toe, viene en extra ancha. Weldor, en el carrito naranja." }, { en: "Walk out the door", es: "Sal por la puerta" }]
+    ],
+    caption: { en: "From the job to the weekend 🔁 #moctoe #workboots #everboots #ootd #tiktokshop", es: "Del trabajo al fin de semana 🔁 #moctoe #botasdetrabajo #everboots #outfit #tiktokshop" } },
+  { p: "sierra", len: "25–30s", fmt: { en: "Walk-and-talk on site", es: "Caminando y hablando en la obra" }, risk: 3,
+    title: { en: "First week in the Sierra", es: "Primera semana con la Sierra" },
+    why: { en: "Very few creators are posting the Sierra yet. Early, honest reviews from women in the trades have little competition.", es: "Muy pocos creadores publican la Sierra. Las reseñas honestas de mujeres en oficios tienen poca competencia." },
+    model: { en: "First-week review format", es: "Formato de reseña de la primera semana" },
+    hookShow: { en: "On screen: \"Women's work boot, week 1\"", es: "En pantalla: \"Bota de trabajo de mujer, semana 1\"" },
+    hook: { en: "A work boot made in women's sizes. Here's week one.", es: "Una bota de trabajo en tallas de mujer. Esta es la semana uno." },
+    beats: [
+      ["0–4s", { en: "A work boot made in women's sizes. Here's week one.", es: "Una bota de trabajo en tallas de mujer. Esta es la semana uno." }, { en: "Walking on site, boots in frame", es: "Caminando en la obra, botas a cuadro" }],
+      ["4–12s", { en: "I'm a [your size] and they fit [how they fit] for me.", es: "Soy talla [tu talla] y me quedan [cómo te quedan]." }, { en: "Close-up of the boot on your foot", es: "Primer plano de la bota puesta" }],
+      ["12–20s", { en: "Waterproof full-grain leather and a slip-resistant sole.", es: "Piel plena impermeable y suela resistente al deslizamiento." }, { en: "Water on the toe, then gravel", es: "Agua en la puntera, luego grava" }],
+      ["20–28s", { en: "It's the Sierra from Everboots. Orange cart.", es: "Es la Sierra de Everboots. Carrito naranja." }, { en: "Point down", es: "Señala abajo" }]
+    ],
+    caption: { en: "Week 1 in a women's work boot 👷‍♀️ #womenintrades #workboots #everboots #tiktokshop", es: "Semana 1 con bota de trabajo de mujer 👷‍♀️ #mujeresenoficios #botasdetrabajo #everboots #tiktokshop" } },
+  { p: "ultra", len: "30–35s", fmt: { en: "Unboxing at home", es: "Unboxing en casa" }, risk: 3,
+    title: { en: "Unboxing + first walk", es: "Unboxing + primera caminada" },
+    why: { en: "Unboxings answer the questions comments always ask: how they look in person, how the leather feels, how they fit.", es: "Los unboxings responden lo que siempre preguntan: cómo se ven en persona, cómo se siente la piel y cómo quedan." },
+    model: { en: "Common format across top Ultra Dry videos", es: "Formato común en los mejores videos de Ultra Dry" },
+    hookShow: { en: "On screen: \"Copper or dark brown?\"", es: "En pantalla: \"¿Cobre o café oscuro?\"" },
+    hook: { en: "Everyone asked which color I got. Let's open them.", es: "Todos preguntaron qué color pedí. Vamos a abrirlas." },
+    beats: [
+      ["0–4s", { en: "Everyone asked which color I got. Let's open them.", es: "Todos preguntaron qué color pedí. Vamos a abrirlas." }, { en: "Box on the table, hands on the lid", es: "Caja en la mesa, manos en la tapa" }],
+      ["4–14s", { en: "This is the copper. Waterproof nubuck, padded collar and tongue.", es: "Esta es la cobre. Nobuk impermeable, cuello y lengüeta acolchados." }, { en: "Turn the boot in the light, squeeze the collar", es: "Gira la bota en la luz, aprieta el cuello" }],
+      ["14–26s", { en: "Let's try them on. First impression: [your honest take].", es: "Vamos a probarlas. Primera impresión: [tu opinión honesta]." }, { en: "Lace up, walk across the room", es: "Amárralas y camina por el cuarto" }],
+      ["26–34s", { en: "Ultra Dry from Everboots. It's in the orange cart.", es: "Ultra Dry de Everboots. Está en el carrito naranja." }, { en: "Point to the cart", es: "Señala el carrito" }]
+    ],
+    caption: { en: "Unboxing the Ultra Dry in copper 📦 #unboxing #workboots #everboots #tiktokshop", es: "Unboxing de la Ultra Dry en cobre 📦 #unboxing #botasdetrabajo #everboots #tiktokshop" } },
+  { p: "ultra", len: "25–30s", fmt: { en: "Day in the life, phone in a chest mount or pocket", es: "Un día de trabajo, celular en el pecho o en la bolsa" }, risk: 3,
+    title: { en: "Wet job, dry feet", es: "Trabajo mojado, pies secos" },
+    why: { en: "The #2 Ultra Dry video came from a pool tech. Jobs where wet feet happen every day sell the boot for you. Swap in your own trade.", es: "El video #2 de Ultra Dry fue de un técnico de albercas. Los trabajos donde te mojas a diario venden la bota solos. Cámbialo por tu oficio." },
+    model: { en: "Day-in-the-life format", es: "Formato de un día de trabajo" },
+    hookShow: { en: "On screen: \"I stand in water all day\"", es: "En pantalla: \"Paso el día en el agua\"" },
+    hook: { en: "I'm in water half my workday. This is what I wear now.", es: "Paso medio día de trabajo en el agua. Esto es lo que uso ahora." },
+    beats: [
+      ["0–3s", { en: "I'm in water half my workday. This is what I wear now.", es: "Paso medio día de trabajo en el agua. Esto es lo que uso ahora." }, { en: "Open on boots in water or wet ground, then pull back", es: "Abre con las botas en agua o suelo mojado y aleja la cámara" }],
+      ["3–10s", { en: "I do [your trade], so wet feet used to be every day for me.", es: "Trabajo en [tu oficio], así que antes me mojaba los pies todos los días." }, { en: "Show the work: hose, pool, wet grass, mud", es: "Muestra el trabajo: manguera, alberca, pasto mojado, lodo" }],
+      ["10–18s", { en: "Waterproof leather, waterproof lining, and the sole grips on wet surfaces for me.", es: "Piel impermeable, forro impermeable, y a mí la suela me agarra en superficies mojadas." }, { en: "Walk across a wet surface, close-up of the tread", es: "Camina sobre superficie mojada, primer plano de la suela" }],
+      ["18–28s", { en: "End of the day, still dry. Ultra Dry, it's in the orange cart.", es: "Al final del día, sigo seco. Ultra Dry, está en el carrito naranja." }, { en: "Take a boot off, show the dry sock, point to the cart", es: "Quítate una bota, muestra el calcetín seco y señala el carrito" }]
+    ],
+    caption: { en: "Wet job, dry feet 💧 #waterproofboots #workboots #bluecollar #everboots #tiktokshop", es: "Trabajo mojado, pies secos 💧 #botasimpermeables #botasdetrabajo #obrero #everboots #tiktokshop" } },
+  { p: "ultra", len: "15–20s", fmt: { en: "Both colors side by side", es: "Los dos colores lado a lado" }, risk: 3,
+    title: { en: "Copper or dark brown?", es: "¿Cobre o café oscuro?" },
+    why: { en: "\"Which color?\" is the top comment question on Ultra Dry videos. A quick side-by-side answers it and gets people choosing in the comments.", es: "\"¿Qué color?\" es la pregunta más común en los videos de Ultra Dry. Una comparación rápida la responde y pone a la gente a elegir en comentarios." },
+    model: { en: "Most-asked question in Ultra Dry comments", es: "La pregunta más común en comentarios de Ultra Dry" },
+    hookShow: { en: "On screen: \"Pick one 👇\"", es: "En pantalla: \"Elige una 👇\"" },
+    hook: { en: "Same boot, two colors. Which one are you picking?", es: "Misma bota, dos colores. ¿Cuál escoges?" },
+    beats: [
+      ["0–3s", { en: "Same boot, two colors. Which one are you picking?", es: "Misma bota, dos colores. ¿Cuál escoges?" }, { en: "One boot in each hand", es: "Una bota en cada mano" }],
+      ["3–9s", { en: "Copper is waterproof nubuck. Dark brown is waterproof full-grain leather.", es: "La cobre es nobuk impermeable. La café oscuro es piel plena impermeable." }, { en: "Turn each boot in the light", es: "Gira cada bota en la luz" }],
+      ["9–14s", { en: "Both have the waterproof lining and the slip-resistant sole.", es: "Las dos tienen forro impermeable y suela resistente al deslizamiento." }, { en: "Flip both to show the soles", es: "Voltea las dos para mostrar las suelas" }],
+      ["14–18s", { en: "Tell me in the comments. Both are in the orange cart.", es: "Díganme en los comentarios. Las dos están en el carrito naranja." }, { en: "Point to the cart", es: "Señala el carrito" }]
+    ],
+    caption: { en: "Copper or dark brown? 👇 #workboots #waterproofboots #everboots #bootseason #tiktokshop", es: "¿Cobre o café oscuro? 👇 #botasdetrabajo #botasimpermeables #everboots #tiktokshop" } }
+];
+SCRIPTS.sort((a, b) => (b.p === "ultra") - (a.p === "ultra"));
+
+/* ---------------------------- Script builder banks ---------------------------- */
+const ANGLES = {
+  ultra: ["shift", "demo", "unbox", "deal"], tanks: ["shift", "demo", "unbox", "deal"],
+  weldor: ["shift", "style", "unbox", "deal"], sierra: ["shift", "demo", "style", "deal"]
+};
+const ANGLE_NAMES = {
+  shift: { en: "Long shift", es: "Jornada larga" }, demo: { en: "Proof test", es: "Prueba en cámara" }, unbox: { en: "Unboxing", es: "Unboxing" },
+  style: { en: "Work to weekend", es: "Trabajo a fin de semana" }, deal: { en: "Deal (only when live)", es: "Oferta (solo si está activa)" }
+};
+const HOOKS = {
+  shift: [{ en: "Ten hours on my feet today. Here's what I wore.", es: "Hoy diez horas de pie. Esto es lo que traía." }, { en: "Honest review after a full shift.", es: "Reseña honesta después de una jornada completa." }, { en: "If you're on your feet all day, watch this.", es: "Si estás de pie todo el día, mira esto." }],
+  demo: { ultra: [{ en: "I'm pouring water on these. Watch my sock.", es: "Les voy a echar agua. Miren mi calcetín." }, { en: "Are they actually waterproof? Let's test it.", es: "¿De verdad son impermeables? Vamos a probar." }],
+          tanks: [{ en: "Hear that? That's the steel toe.", es: "¿Oyen eso? Es el casquillo de acero." }, { en: "Is this a real steel toe? Listen.", es: "¿Es casquillo de acero de verdad? Escuchen." }],
+          sierra: [{ en: "Water on a women's work boot. Let's see.", es: "Agua en una bota de trabajo de mujer. A ver." }, { en: "Testing my new boots before a rainy week.", es: "Probando mis botas nuevas antes de una semana de lluvia." }] },
+  unbox: [{ en: "They came. Let's open them.", es: "Ya llegaron. Vamos a abrirlas." }, { en: "Everyone asked about these boots. Here they are.", es: "Todos preguntaron por estas botas. Aquí están." }],
+  style: [{ en: "Same boots, two looks.", es: "Mismas botas, dos looks." }, { en: "Work boots I actually wear on the weekend.", es: "Botas de trabajo que sí uso el fin de semana." }],
+  deal: [{ en: "Heads up, these are on a deal in the cart right now.", es: "Ojo, estas tienen oferta en el carrito ahorita." }, { en: "If you've been waiting on these, check the cart today.", es: "Si estabas esperando estas, revisa el carrito hoy." }]
+};
+const PERSONAL = {
+  shift: [{ en: "For me, they've been comfortable the whole shift.", es: "A mí me han resultado cómodas toda la jornada." }, { en: "I've worn them every day this week.", es: "Las he usado todos los días esta semana." }],
+  demo: [{ en: "That's the test. Judge for yourself.", es: "Esa es la prueba. Ustedes juzguen." }, { en: "That's what happened when I tried it.", es: "Eso pasó cuando lo probé." }],
+  unbox: [{ en: "First impression: they look better in person.", es: "Primera impresión: se ven mejor en persona." }, { en: "The leather feels solid in hand.", es: "La piel se siente sólida en la mano." }],
+  style: [{ en: "They don't look like I worked in them all day.", es: "No parece que trabajé con ellas todo el día." }, { en: "I wear them out now too.", es: "Ahora también las uso para salir." }],
+  deal: [{ en: "I don't know how long the deal runs, so check the cart.", es: "No sé cuánto dura la oferta, revisa el carrito." }, { en: "The price you see in the cart is the price.", es: "El precio que ves en el carrito es el precio." }]
+};
+const SHOWS = {
+  hook: { en: "Close to camera, boots in frame", es: "Cerca de cámara, botas a cuadro" },
+  personal: { en: "Walking, boots on", es: "Caminando, botas puestas" },
+  cta: { en: "Point down to the orange cart", es: "Señala el carrito naranja" }
+};
+const CTAS = [{ en: "It's the {name}. It's in the orange cart.", es: "Es la {name}. Está en el carrito naranja." }, { en: "{name} from Everboots. Orange cart.", es: "{name} de Everboots. Carrito naranja." }];
+
+/* ---------------------------- Risk rules ---------------------------- */
+const RULES = [
+  { id: "medical", sev: "high", w: 0.62,
+    name: { en: "Medical and health claims", es: "Claims médicos y de salud" },
+    re: /plantar fasciitis|fascitis plantar|back pain|knee pain|joint pain|foot pain|dolor de (espalda|rodilla|pies|articulaciones)|orthopedic|ortop[eé]dic|podiatrist|pod[oó]logo|arthritis|artritis|diabetic|diab[eé]tic|neuropathy|neuropat[ií]a|\bcures?\b|\bheal(s|ed)?\b|\bcura(n|r)?\b|fixe[sd]? (my|your) (feet|back|knees)|pain is gone|no more pain|ya no me duele|se me quit[oó] el dolor/gi,
+    why: { en: "Footwear can't claim to treat, relieve or prevent a medical condition.", es: "El calzado no puede decir que trata, alivia o previene una condición médica." },
+    fix: { en: "Describe comfort in your own experience: \"They've been comfortable for my whole shift.\"", es: "Describe la comodidad desde tu experiencia: \"Me han resultado cómodas todo el turno.\"" },
+    section: { en: "Misleading claims: health and medical", es: "Claims engañosos: salud y medicina" } },
+  { id: "safety", sev: "high", w: 0.55,
+    name: { en: "Unverified safety ratings", es: "Clasificaciones de seguridad no verificadas" },
+    re: /osha[ -]?(approved|certified|compliant)|(aprobad|certificad)[oa]s? por osha|electrical hazard|\bEH[ -]rated\b|riesgo el[eé]ctrico|puncture[ -]?(proof|resistant)|anti ?perforaci[oó]n|composite toe|metatarsal|\bCSA\b|safety toe|puntera de seguridad/gi,
+    why: { en: "Only claim ratings that are on the product listing. Tank S and Miner have ASTM F2413-11 I/75 C/75 steel toes. Nothing else is rated.", es: "Solo menciona clasificaciones que estén en el listado. Tank S y Miner tienen casquillo ASTM F2413-11 I/75 C/75. Nada más está clasificado." },
+    fix: { en: "For Tank S say \"ASTM-certified steel toe.\" For other boots, leave safety ratings out.", es: "Para Tank S di \"casquillo de acero certificado ASTM\". Para las demás, no menciones clasificaciones." },
+    section: { en: "Misleading claims: certifications", es: "Claims engañosos: certificaciones" } },
+  { id: "exaggerated", sev: "med", w: 0.38,
+    name: { en: "Exaggerated promises", es: "Promesas exageradas" },
+    re: /100 ?% waterproof|100 ?% impermeable|never (get|have) wet|nunca (te vas a|vas a|se) moj|(last|lasts|will last) forever|duran? para siempre|indestructible|unbreakable|bullet ?proof|slip[ -]?proof|non[ -]?slip|never slip|nunca (te )?resbal|best boots? (in|on) the (world|market|planet)|las mejores botas del (mundo|mercado)|no break[ -]?in|zero break[ -]?in|sin per[ií]odo de adaptaci[oó]n/gi,
+    why: { en: "Absolute promises about durability, grip or waterproofing overstate what the boot does.", es: "Las promesas absolutas sobre durabilidad, agarre o impermeabilidad exageran lo que hace la bota." },
+    fix: { en: "Show the test and add a qualifier: \"My feet stayed dry through the whole test.\"", es: "Muestra la prueba y agrega un matiz: \"Mis pies se quedaron secos toda la prueba.\"" },
+    section: { en: "Misleading claims: exaggeration", es: "Claims engañosos: exageración" } },
+  { id: "traffic", sev: "high", w: 0.58,
+    name: { en: "Sending viewers off TikTok Shop", es: "Sacar a los espectadores de TikTok Shop" },
+    re: /link in (my )?bio|link en (mi )?bio|enlace en (mi )?bio|everboots\.com|\bamazon\b|\bwebsite\b|p[aá]gina web|(discount|promo|coupon) code|use (my )?code|c[oó]digo de descuento|usa (mi )?c[oó]digo|\bdm me\b|message me|m[aá]ndame (un )?(mensaje|dm)|whatsapp/gi,
+    why: { en: "Links, codes and DMs move sales off the platform.", es: "Links, códigos y mensajes directos sacan las ventas de la plataforma." },
+    fix: { en: "Say \"It's in the orange cart.\"", es: "Di \"Está en el carrito naranja.\"" },
+    section: { en: "Redirecting traffic off-platform", es: "Redirigir tráfico fuera de la plataforma" } },
+  { id: "compare", sev: "med", w: 0.32,
+    name: { en: "Competitor comparisons", es: "Comparaciones con la competencia" },
+    re: /red ?wings?|timberlands?|caterpillar|\bcat boots\b|wolverines?|thorogood|\bkeen\b|dr\.? ?martens|ariat|carhartt|\bdupe\b|r[eé]plica|same as (the )?(expensive|name brand)/gi,
+    why: { en: "Naming other brands, or calling the boot a dupe, invites IP complaints and arguments in the comments.", es: "Nombrar otras marcas o decir que es una réplica genera quejas de propiedad intelectual y pleitos en comentarios." },
+    fix: { en: "Talk about what the boot has: \"Full-grain leather and a stitched-on sole for $79.99.\"", es: "Habla de lo que tiene la bota: \"Piel plena y suela cosida por $79.99.\"" },
+    section: { en: "Intellectual property and comparisons", es: "Propiedad intelectual y comparaciones" } },
+  { id: "urgency", sev: "med", w: 0.3,
+    name: { en: "False urgency or deals", es: "Urgencia u ofertas falsas" },
+    re: /only \d+ left|selling out|almost gone|last chance|price (goes|is going) up|ends (tonight|today)|quedan? s[oó]lo|se est[aá]n agotando|[uú]ltima oportunidad|\d+ ?% off|\d+ ?% de descuento|free shipping|env[ií]o gratis/gi,
+    why: { en: "Stock counts, deadlines and discounts must match what's live in the cart at the moment you post.", es: "Las existencias, fechas y descuentos deben coincidir con lo que está activo en el carrito al publicar." },
+    fix: { en: "Only mention a deal when it's live: \"Check the cart for today's price.\"", es: "Solo menciona una oferta si está activa: \"Revisa el carrito para el precio de hoy.\"" },
+    section: { en: "Misleading promotions", es: "Promociones engañosas" } },
+  { id: "guarantee", sev: "med", w: 0.3,
+    name: { en: "Wrong guarantee", es: "Garantía incorrecta" },
+    re: /lifetime (warranty|guarantee)|garant[ií]a de por vida|money[ -]?back guarantee|garant[ií]a de devoluci[oó]n|guaranteed to last/gi,
+    why: { en: "Everboots offers a 90-day Tough As Ever guarantee. Anything longer or different is a false promise.", es: "Everboots ofrece la garantía Tough As Ever de 90 días. Algo más largo o distinto es una promesa falsa." },
+    fix: { en: "Say \"backed by a 90-day guarantee.\"", es: "Di \"respaldada por una garantía de 90 días\"." },
+    section: { en: "Misleading claims: warranties", es: "Claims engañosos: garantías" } },
+  { id: "disclosure", sev: "high", w: 0.5,
+    name: { en: "Hiding the partnership", es: "Ocultar la colaboración" },
+    re: /not sponsored|no (es|está) patrocinado|nobody paid me|nadie me pag[oó]|i bought these myself/gi,
+    why: { en: "If you get free product, commission or a retainer, you can't say the video isn't sponsored.", es: "Si recibes producto gratis, comisión o retainer, no puedes decir que el video no es patrocinado." },
+    fix: { en: "Turn on the commercial content label and skip the line.", es: "Activa la etiqueta de contenido comercial y quita la frase." },
+    section: { en: "Branded content disclosure", es: "Divulgación de contenido de marca" } }
+];
+function checkText(text) {
+  const flags = [];
+  for (const r of RULES) {
+    const m = [...new Set((text.match(r.re) || []).map(s => s.toLowerCase()))];
+    if (m.length) flags.push({ r, hits: m });
+  }
+  let keep = 1; flags.forEach(f => keep *= (1 - f.r.w));
+  const pct = text.trim() ? Math.max(3, Math.round((1 - keep) * 100)) : 0;
+  return { flags, pct };
+}
+
+/* ---------------------------- Policy updates ---------------------------- */
+const UPDATES = [
+  { date: new Date(2026, 10, 1), tag: { en: "Focus", es: "Enfoque" }, cls: "warn",
+    title: { en: "Our focus boot this season: the Ultra Dry", es: "Nuestra bota principal esta temporada: la Ultra Dry" },
+    body: { en: "Most of this week's scripts are Ultra Dry. Lead with a water test and a dry sock, call it waterproof (never steel toe), and point to the orange cart. Copper and dark brown both count.", es: "La mayoría de los guiones de esta semana son de Ultra Dry. Empieza con una prueba de agua y el calcetín seco, di que es impermeable (nunca de acero) y señala el carrito naranja. Cobre y café oscuro cuentan igual." } },
+  { date: new Date(2026, 10, 1), tag: { en: "New", es: "Nuevo" }, cls: "good",
+    title: { en: "The Creator Hub is live", es: "El Centro de creadores ya está activo" },
+    body: { en: "Scripts, product facts, a claims guide and a script checker, in English and Spanish. Share the link with any creator posting Everboots.", es: "Guiones, datos de producto, guía de claims y revisor de guiones, en inglés y español. Comparte el link con cualquier creador que publique Everboots." } },
+  { date: new Date(2026, 9, 20), tag: { en: "Product", es: "Producto" }, cls: "warn",
+    title: { en: "Sierra Boot: Everboots' first women's boot", es: "Bota Sierra: la primera bota de mujer de Everboots" },
+    body: { en: "Waterproof, soft toe, women's sizes 5.5–11. Very few creators are posting it yet, so good videos have little competition.", es: "Impermeable, puntera suave, tallas de mujer 5.5–11. Muy pocos creadores la publican, así que los buenos videos tienen poca competencia." } },
+  { date: new Date(2026, 9, 6), tag: { en: "Claims", es: "Claims" }, cls: "bad",
+    title: { en: "Steel toe claims: Tank S and Miner only", es: "Casquillo de acero: solo Tank S y Miner" },
+    body: { en: "We've seen videos calling the Ultra Dry and Weldor \"steel toe.\" They're soft toe. Saying otherwise on a work boot is a safety claim TikTok takes seriously.", es: "Vimos videos que dicen que Ultra Dry y Weldor son \"de acero\". Son de puntera suave. Decir lo contrario en una bota de trabajo es un claim de seguridad que TikTok toma en serio." } },
+  { date: new Date(2026, 9, 6), tag: { en: "TikTok change", es: "Cambio de TikTok" }, cls: "bad", src: "https://getlive.ai/news/tiktok-shop-seller-university-october-7-2026",
+    title: { en: "Shop problems can pause your shopping access", es: "Los problemas de una tienda pueden pausar tu acceso a ventas" },
+    body: { en: "TikTok's updated seller enforcement policy says that when a shop is deactivated, linked creator accounts can lose e-commerce access until the shop is restored. Harassing TikTok staff is also banned for sellers and creators.", es: "La política actualizada de TikTok dice que si una tienda es desactivada, las cuentas de creadores vinculadas pueden perder el acceso a e-commerce hasta que se restablezca. También se prohíbe acosar al personal de TikTok." } },
+  { date: new Date(2026, 6, 31), tag: { en: "TikTok change", es: "Cambio de TikTok" }, cls: "bad", src: "https://spctek.com/tiktok-shop-strengthens-creator-enforcement-policy/",
+    title: { en: "Repeat violations can cost you the orange cart", es: "Las infracciones repetidas te pueden quitar el carrito naranja" },
+    body: { en: "Under TikTok's creator enforcement policy (effective July 31), breaking the same rule six times in 90 days can remove your e-commerce permissions and freeze commissions. You have 30 days to appeal each violation. Check every script before you post.", es: "Con la política de cumplimiento para creadores (vigente desde el 31 de julio), romper la misma regla seis veces en 90 días puede quitarte los permisos de e-commerce y congelar comisiones. Tienes 30 días para apelar cada infracción. Revisa cada guion antes de publicar." } },
+  { date: new Date(2026, 6, 31), tag: { en: "TikTok guideline", es: "Regla de TikTok" }, cls: "warn", src: "https://www.storika.ai/guides/tiktok-shop-creator-compliance-rules-2026",
+    title: { en: "Who can be a TikTok Shop affiliate", es: "Quién puede ser afiliado de TikTok Shop" },
+    body: { en: "TikTok's creator eligibility rules: 18+, US-based, at least 1,000 followers, and no past loss of e-commerce permissions. Accounts under 5,000 followers may start in a trial program for at least 30 days.", es: "Requisitos de TikTok: mayor de 18, en EE. UU., al menos 1,000 seguidores y sin haber perdido permisos de e-commerce antes. Cuentas con menos de 5,000 seguidores pueden empezar en un programa de prueba de al menos 30 días." } },
+  { date: new Date(2026, 6, 14), tag: { en: "TikTok change", es: "Cambio de TikTok" }, cls: "warn", src: "https://news.seonib.com/articles/2026-09-03/tiktok-shop-2026-policy-updates-creator-enforcement-commissi.html",
+    title: { en: "Reported: 10% minimum commission on open collabs", es: "Reportado: comisión mínima de 10% en colaboraciones abiertas" },
+    body: { en: "Industry news reports a 10% minimum commission on open collaborations starting July 14. It doesn't apply to targeted or private deals. We haven't seen TikTok's own announcement yet.", es: "Noticias del sector reportan una comisión mínima de 10% en colaboraciones abiertas desde el 14 de julio. No aplica a acuerdos dirigidos o privados. Aún no vemos el anuncio oficial de TikTok." } },
+  { date: new Date(2026, 4, 22), tag: { en: "TikTok change", es: "Cambio de TikTok" }, cls: "warn", src: "https://ppc.land/tiktok-shops-tightening-grip-new-rules-that-could-freeze-your-account/",
+    title: { en: "Posting limits and longer payment holds", es: "Límites de publicación y retenciones de pago más largas" },
+    body: { en: "Since May, TikTok limits how many shoppable videos you can post per day, and posting lots of product-linked videos without real interaction can get restricted. The content policy was also revised May 22 to cover covers, titles and links, and flagged accounts can have payments held up to 31 days. Post fewer, better videos.", es: "Desde mayo, TikTok limita cuántos videos con producto puedes publicar al día, y publicar muchos videos con link de producto sin interacción real puede causar restricciones. La política de contenido también se revisó el 22 de mayo para incluir portadas, títulos y links, y a cuentas marcadas les pueden retener pagos hasta 31 días. Publica menos videos, pero mejores." } }
+];
+
+UPDATES.sort((a, b) => b.date - a.date);
+
+/* ---------------------------- Helpers ---------------------------- */
+const locale = () => lang === "es" ? "es-US" : "en-US";
+const fmtMoney = (n) => SHOW_DOLLARS ? new Intl.NumberFormat(locale(), { style: "currency", currency: "USD", maximumFractionDigits: n < 100 ? 2 : 0 }).format(n) : "—";
+const fmtPrice = (n) => new Intl.NumberFormat(locale(), { style: "currency", currency: "USD" }).format(n);
+const fmtNum = (n) => new Intl.NumberFormat(locale(), { notation: n >= 100000 ? "compact" : "standard", maximumFractionDigits: 1 }).format(n);
+const fmtDate = (d, o = { month: "short", day: "numeric" }) => new Intl.DateTimeFormat(locale(), o).format(d);
+const fmtPct = (n, dig = 1) => new Intl.NumberFormat(locale(), { maximumFractionDigits: dig, minimumFractionDigits: dig }).format(n) + "%";
+const delta = (v, label) => `<span class="delta ${v >= 0 ? "up" : "down"}">${v >= 0 ? "▲" : "▼"} ${fmtPct(Math.abs(v))} ${label}</span>`;
+const chipName = (p) => p.focus ? `<span class="star" aria-label="${lang === "es" ? "Principal" : "Focus"}">★</span> ${p.name}` : p.name;
+const exPill = () => EXAMPLE_DATA ? `<span class="pill ex">${S("exampleTag")}</span>` : "";
+const bootSvg = `<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h12v20c0 2 1 3 3 4l9 4c3 1 5 3 5 6v2H8V30c0-2 1-3 2-4V8c0-1 2-2 4-2z" fill="var(--copper)" opacity=".85"/><path d="M8 40h35v3H8z" fill="var(--ink)"/><path d="M16 12h8M16 17h8M16 22h8" stroke="var(--surface)" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+
+function toast(msg) {
+  const el = document.createElement("div"); el.className = "toast"; el.textContent = msg; el.setAttribute("role", "status");
+  document.body.appendChild(el); setTimeout(() => el.remove(), 1600);
+}
+async function copyText(text, el) {
+  try { await navigator.clipboard.writeText(text); toast(S("copied")); }
+  catch (e) {
+    if (el && el.select) { el.select(); }
+    else { const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); toast(S("copied")); } catch (_) {} ta.remove(); }
+  }
+}
+const store = { get(k, d) { try { return localStorage.getItem(k) ?? d; } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+/* ---------------------------- State ---------------------------- */
+const VIEWS = ["home", "selling", "scripts", "products", "claims", "check", "updates"];
+let view = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "home";
+let sellProd = "ultra", metric = "gmv", scriptProd = "all", prodTab = "ultra";
+let checkerText = { en: "These are basically Red Wings for half the price, link in bio. They're 100% waterproof and my plantar fasciitis is gone.", es: "Son básicamente unas Red Wing a mitad de precio, link en mi bio. Son 100% impermeables y se me quitó la fascitis plantar." };
+let checkerEdited = false;
+const builder = { p: "ultra", angle: "shift", len: 30, lang: null, seed: 1, deal: false, text: null };
+
+/* ---------------------------- Render: shell ---------------------------- */
+function renderShell() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = S(el.dataset.i18n); });
+  document.getElementById("langEn").setAttribute("aria-pressed", lang === "en");
+  document.getElementById("langEs").setAttribute("aria-pressed", lang === "es");
+  document.getElementById("tabs").innerHTML = VIEWS.map(v =>
+    `<a href="#${v}" data-view="${v}" ${v === view ? 'aria-current="page"' : ""}>${T(UI.nav[v])}${v === "updates" ? '<span class="count">2</span>' : ""}</a>`).join("");
+  const [h, sub] = UI.hero[view];
+  document.getElementById("heroTitle").textContent = T(h);
+  document.getElementById("heroSub").textContent = T(sub);
+  document.getElementById("footText").textContent = S("foot");
+}
+function render() {
+  renderShell();
+  const main = document.getElementById("main");
+  main.innerHTML = `<div class="view">${({ home: vHome, selling: vSelling, scripts: vScripts, products: vProducts, claims: vClaims, check: vCheck, updates: vUpdates })[view]()}</div>`;
+  if (view === "selling") drawChart();
+  if (view === "scripts") updateBuilderRisk();
+  if (view === "check") updateChecker();
+}
+function go(v) { view = v; try { history.replaceState(null, "", "#" + v); } catch (e) {} render(); window.scrollTo({ top: 0 }); }
+
+/* ---------------------------- View: home ---------------------------- */
+function topVideosAll() {
+  return PRODUCTS.flatMap(p => VIDEOS[p.id].map((v, i) => ({ ...v, p: p.id, i }))).sort((a, b) => b.gmv - a.gmv);
+}
+function vHome() {
+  const L = lang === "es";
+  const rules = L ? [
+    "Activa la etiqueta de contenido comercial en cada video de Everboots.",
+    "Casquillo de acero solo para Tank S y Miner. Todas las demás son de puntera suave.",
+    "Impermeable solo para Ultra Dry y Sierra. Weldor es repelente al agua.",
+    "Nada de claims médicos: fascitis plantar, dolor de espalda, ortopédico.",
+    "Nunca digas \"aprobada por OSHA\". Di la clasificación ASTM exacta.",
+    "No nombres otras marcas de botas ni digas \"réplica\".",
+    "Solo menciona ofertas que estén activas en el carrito naranja.",
+    "Nada de link en bio, página web ni códigos. Siempre \"carrito naranja\"."
+  ] : [
+    "Turn on the commercial content label on every Everboots video.",
+    "Steel toe is Tank S and Miner only. Every other boot is soft toe.",
+    "Waterproof is Ultra Dry and Sierra only. Weldor is water repellent.",
+    "No medical claims: plantar fasciitis, back pain, orthopedic.",
+    "Never say \"OSHA approved.\" Say the exact ASTM rating.",
+    "Don't name other boot brands or call it a dupe.",
+    "Only mention deals that are live in the orange cart.",
+    "No link in bio, website or codes. Always \"orange cart.\""
+  ];
+  const vids = topVideosAll().slice(0, 3);
+  const hooks = ([HOOKS.demo.ultra[0], HOOKS.demo.ultra[1], { en: "I'm in water half my workday. This is what I wear now.", es: "Paso medio día de trabajo en el agua. Esto es lo que uso ahora." }, { en: "Same boot, two colors. Which one are you picking?", es: "Misma bota, dos colores. ¿Cuál escoges?" }, HOOKS.shift[0], HOOKS.demo.tanks[0]]);
+  const u = UPDATES[0], f = P("ultra"), fs = SALES.ultra, nUltra = SCRIPTS.filter(s => s.p === "ultra").length;
+  return `
+  <section class="card welt focus">
+    <div class="boot-ico">${bootSvg}</div>
+    <div class="focus-main">
+      <p class="eyebrow">${L ? "Bota principal de la temporada" : "Focus boot this season"}</p>
+      <h2 style="font-size:30px">${f.name} <span class="small" style="font-family:var(--mono)">${fmtPrice(f.price)}</span></h2>
+      <p>${L ? "Si vas a grabar una bota esta semana, que sea esta. Impermeable, en cobre o café oscuro. Abre con una prueba de agua y termina con el calcetín seco." : "If you film one boot this week, make it this one. Waterproof, in copper or dark brown. Open with a water test and end on a dry sock."}</p>
+      <div class="chips" style="margin-top:10px">${T(f.say).slice(0, 3).map(x => `<span class="tag">✓ ${esc(x)}</span>`).join("")}<span class="tag" style="color:var(--bad)">✕ ${L ? "No es de acero" : "Not steel toe"}</span></div>
+      <div class="btn-row" style="margin-top:14px">
+        <button class="btn primary" data-focus="scripts">${nUltra} ${L ? "guiones de Ultra Dry" : "Ultra Dry scripts"}</button>
+        <button class="btn" data-focus="products">${L ? "Datos del producto" : "Product facts"}</button>
+        <button class="btn" data-focus="selling">${L ? "Qué se vende" : "What's selling"}</button>
+      </div>
+    </div>
+    <div class="focus-stats">
+      <div><div class="small">${L ? "GMV 30 días" : "30-day GMV"} ${exPill()}</div><div class="val">${fmtMoney(fs.gmv)}</div>${delta(fs.ch.gmv, "")}</div>
+      <div><div class="small">${L ? "Videos publicados" : "Videos posted"}</div><div class="val">${fmtNum(fs.posted)}</div>${delta(fs.ch.vids, "")}</div>
+    </div>
+  </section>
+  <div class="grid-2">
+    <div class="stack">
+      <section class="card welt">
+        <div class="card-head"><h2>${L ? "Antes de publicar" : "Before you post"}</h2><span class="small">${L ? "Las reglas que protegen tu cuenta" : "The rules that protect your account"}</span></div>
+        <ol class="check">${rules.map(r => `<li>${esc(r)}</li>`).join("")}</ol>
+        <div class="btn-row" style="margin-top:14px">
+          <a class="btn dark" href="#check" data-view="check">${L ? "Revisar un guion" : "Check a script"}</a>
+          <a class="btn" href="#claims" data-view="claims">${L ? "Abrir la guía de claims" : "Open the claims guide"}</a>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h2>${L ? "Qué se vende ahorita" : "What's selling right now"}</h2><a class="linkbtn" href="#selling" data-view="selling">${L ? "Ver los datos →" : "See the data →"}</a></div>
+        <p class="small">${L ? "Mejores videos en Cruva" : "Top videos in Cruva"} · ${fmtDate(VIDEO_RANGE.from)}–${fmtDate(VIDEO_RANGE.to, { month: "short", day: "numeric", year: "numeric" })}</p>
+        ${vids.map((v, n) => `
+          <div class="vid">
+            <div class="rank">${n + 1}</div>
+            <div><b>${esc(v.h)}</b> · <span class="small">${P(v.p).name}</span>
+              <p class="quote">${esc(vidTitle(v))}</p>
+              <p class="meta">${fmtNum(v.views)} ${L ? "vistas" : "views"} · ${v.units} ${L ? "vendidas" : "sold"} · ${vidLink(v)} · <button class="linkbtn" data-video="${v.p}:${v.i}">${L ? "Ver detalles" : "View details"}</button></p></div>
+            <div class="money">${fmtMoney(v.gmv)}<div class="small">GMV</div></div>
+          </div>`).join("")}
+      </section>
+    </div>
+    <div class="stack">
+      <section class="card cta">
+        <h2>${L ? "Graba esta semana" : "Film this week"}</h2>
+        <p>${L ? `${SCRIPTS.length} guiones basados en los videos que más venden, ${nUltra} de la Ultra Dry. Copia uno y grábalo hoy.` : `${SCRIPTS.length} scripts based on this period's best-selling videos, ${nUltra} of them for the Ultra Dry. Copy one and film it today.`}</p>
+        <a class="btn" href="#scripts" data-view="scripts">${L ? "Ver los guiones" : "See this week's scripts"}</a>
+      </section>
+      <section class="card cta-dark">
+        <h2>${L ? "Únete al programa de creadores" : "Join the creator program"}</h2>
+        <p>${L ? "Retainers mensuales para creadores que publican Everboots seguido. Cuéntanos de tu contenido." : "Monthly retainers for creators who post Everboots consistently. Tell us about your content."}</p>
+        <button class="btn primary" type="button" data-apply>${S("applyBtn")}</button>
+      </section>
+      <section class="card">
+        <div class="card-head"><h3>${L ? "Ganchos seguros" : "Safe hook starters"}</h3></div>
+        <p class="small" style="margin-bottom:6px">${L ? "Copia uno para empezar tu próximo video" : "Copy one to open your next video"}</p>
+        <div class="hooks">${hooks.map(h => `<div class="hook-row"><span>"${esc(T(h))}"</span><button class="copy" data-copy="${esc(T(h))}">${S("copy")}</button></div>`).join("")}</div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h3>${L ? "Última actualización" : "Latest policy update"}</h3><a class="linkbtn" href="#updates" data-view="updates">${L ? "Todas →" : "All →"}</a></div>
+        <p class="date">${fmtDate(u.date, { month: "short", day: "numeric", year: "numeric" })} <span class="pill ${u.cls}">${esc(T(u.tag))}</span></p>
+        <p style="margin-top:6px"><b>${esc(T(u.title))}</b></p>
+        <p class="small" style="margin-top:4px">${esc(T(u.body))}</p>
+      </section>
+    </div>
+  </div>`;
+}
+
+/* ---------------------------- View: what's selling ---------------------------- */
+const METRICS = { gmv: { en: "Total GMV", es: "GMV total" }, aff: { en: "Affiliate GMV", es: "GMV de afiliados" }, units: { en: "Units sold", es: "Unidades vendidas" }, views: { en: "Video views", es: "Vistas de video" }, posted: { en: "Videos posted", es: "Videos publicados" } };
+function vSelling() {
+  const L = lang === "es", s = SALES[sellProd], p = P(sellProd), vs = L ? "vs. 30 días previos" : "vs previous 30 days";
+  const first = s.days[0].d, last = s.days[29].d;
+  const vids = VIDEOS[sellProd];
+  const w = WORKING[sellProd];
+  return `
+  ${EXAMPLE_DATA ? `<div class="note-strip"><span>${S("exampleStrip")}</span></div>` : ""}
+  <div class="card-head" style="margin:0">
+    <div class="chips" role="group" aria-label="Product">${PRODUCTS.map(x => `<button class="chip" data-sell="${x.id}" aria-pressed="${x.id === sellProd}">${chipName(x)}</button>`).join("")}</div>
+    <span class="small">${L ? "Datos al" : "Data as of"} ${fmtDate(DATA_AS_OF, { month: "short", day: "numeric" })} · ${L ? "actualizado a diario por el equipo de Everboots" : "updated daily by the Everboots team"}</span>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">${L ? "GMV total" : "Total GMV"}</div><div class="val">${fmtMoney(s.gmv)}</div>${delta(s.ch.gmv, vs)}</div>
+    <div class="kpi"><div class="lbl">${L ? "Unidades vendidas" : "Units sold"}</div><div class="val">${fmtNum(s.units)}</div>${delta(s.ch.units, vs)}</div>
+    <div class="kpi"><div class="lbl">${L ? "Vistas de video" : "Video views"}</div><div class="val">${fmtNum(s.views)}</div>${delta(s.ch.views, vs)}</div>
+    <div class="kpi"><div class="lbl">${L ? "GMV por 1K vistas" : "GMV per 1K views"}</div><div class="val">${fmtMoney(s.gmv / s.views * 1000)}</div>${delta(s.ch.gpm, vs)}</div>
+    <div class="kpi"><div class="lbl">${L ? "Videos publicados" : "Videos posted"}</div><div class="val">${fmtNum(s.posted)}</div>${delta(s.ch.vids, vs)}</div>
+    <div class="kpi"><div class="lbl">${L ? "Creadores publicando" : "Creators posting"}</div><div class="val">${fmtNum(s.creators)}</div>${delta(s.ch.creators, vs)}</div>
+    <div class="kpi"><div class="lbl">${L ? "Ticket promedio" : "Avg order value"}</div><div class="val">${fmtMoney(s.gmv / s.units)}</div>${delta(s.ch.aov, vs)}</div>
+  </div>
+  <section class="card">
+    <div class="card-head"><h3>${L ? "Últimos 30 días, día por día" : "Last 30 days, day by day"}</h3><span class="small">${p.name} · ${fmtDate(first)}–${fmtDate(last)}</span></div>
+    <div class="chips" role="group" aria-label="Metric" style="margin-bottom:10px">${Object.keys(METRICS).map(k => `<button class="chip" data-metric="${k}" aria-pressed="${k === metric}">${T(METRICS[k])}</button>`).join("")}</div>
+    <div class="chart-wrap" id="chart"></div>
+  </section>
+  <div class="grid-2">
+    <section class="card">
+      <div class="card-head"><h3>${L ? "Mejores videos por GMV" : "Top videos by GMV"}</h3><span class="small">Cruva · ${fmtDate(VIDEO_RANGE.from)}–${fmtDate(VIDEO_RANGE.to)}</span></div>
+      ${vids.length ? "" : `<p class="small">${L ? "Esta bota todavía no tiene videos entre los mejores de Cruva en este periodo. Es una oportunidad: casi no hay competencia." : "No videos for this boot made Cruva's top list this period. That's an opening: there's almost no competition yet."}</p>`}
+      ${vids.map((v, i) => `
+        <div class="vid">
+          <div class="rank">${i + 1}</div>
+          <div><b>${esc(v.h)}</b> ${gpmOf(v) >= MEDIAN_GPM[sellProd] ? `<span class="pill good">${L ? "Arriba de la mediana" : "Above median"}</span>` : ""}
+            <p class="quote">${esc(vidTitle(v))}</p>
+            <p class="meta">${fmtNum(v.views)} ${L ? "vistas" : "views"} · ${v.units} ${L ? "vendidas" : "sold"} · ${fmtMoney(gpmOf(v))} ${L ? "por 1K vistas" : "per 1K views"} · ${vidLink(v)} · <button class="linkbtn" data-video="${sellProd}:${i}">${L ? "Ver detalles" : "View details"}</button></p></div>
+          <div class="money">${fmtMoney(v.gmv)}<div class="small">GMV</div></div>
+        </div>`).join("")}
+    </section>
+    <div class="stack">
+      <section class="card"><h3>${L ? "Lo que funciona" : "What's working"}</h3><ul class="plain" style="margin-top:8px">${T(w.yes).map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>
+      <section class="card careful"><h3>${L ? "Lo que no hay que copiar" : "What not to copy"}</h3><ul class="plain" style="margin-top:8px">${T(w.no).map(x => `<li>${esc(x)}</li>`).join("")}</ul></section>
+    </div>
+  </div>`;
+}
+function drawChart() {
+  const el = document.getElementById("chart"); if (!el) return;
+  const days = SALES[sellProd].days, vals = days.map(d => d[metric]);
+  const W = 720, H = 230, pl = 54, pr = 14, pt = 14, pb = 28;
+  const max = Math.max(...vals) * 1.08, avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const x = (i) => pl + i * (W - pl - pr) / (vals.length - 1), y = (v) => pt + (1 - v / max) * (H - pt - pb);
+  const isMoney = metric === "gmv" || metric === "aff";
+  const lab = (v) => isMoney ? fmtMoney(v) : fmtNum(Math.round(v));
+  const line = vals.map((v, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join("");
+  const area = `${line}L${x(vals.length - 1)},${y(0)}L${x(0)},${y(0)}Z`;
+  const ticks = [0, max / 2, max];
+  const li = vals.length - 1;
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T(METRICS[metric])}">
+    ${ticks.map(t => `<line x1="${pl}" x2="${W - pr}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)" stroke-width="1"/><text x="${pl - 8}" y="${y(t) + 4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${lab(t)}</text>`).join("")}
+    <path d="${area}" fill="var(--chart-fill)"/>
+    <path d="${line}" fill="none" stroke="var(--chart)" stroke-width="2.2" stroke-linejoin="round"/>
+    <line x1="${pl}" x2="${W - pr}" y1="${y(avg)}" y2="${y(avg)}" stroke="var(--copper)" stroke-dasharray="4 4" stroke-width="1" opacity=".7"/>
+    <text x="${W - pr}" y="${y(avg) - 5}" text-anchor="end" font-size="11" fill="var(--copper)" font-family="IBM Plex Mono, monospace">${lang === "es" ? "prom." : "avg"} ${lab(avg)}</text>
+    <circle cx="${x(li)}" cy="${y(vals[li])}" r="4" fill="var(--chart)" stroke="var(--surface)" stroke-width="2"/>
+    <text x="${pl}" y="${H - 8}" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${fmtDate(days[0].d)}</text>
+    <text x="${W - pr}" y="${H - 8}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${fmtDate(days[li].d)}</text>
+    <line id="cursor" x1="0" x2="0" y1="${pt}" y2="${H - pb}" stroke="var(--muted)" stroke-width="1" opacity="0"/>
+    <rect x="${pl}" y="${pt}" width="${W - pl - pr}" height="${H - pt - pb}" fill="transparent" id="hit"/>
+  </svg><div class="chart-tip" id="tip" hidden></div>`;
+  const svg = el.querySelector("svg"), tip = el.querySelector("#tip"), cur = el.querySelector("#cursor");
+  const move = (e) => {
+    const r = svg.getBoundingClientRect(), sx = (e.clientX - r.left) / r.width * W;
+    const i = Math.max(0, Math.min(li, Math.round((sx - pl) / (W - pl - pr) * li)));
+    cur.setAttribute("x1", x(i)); cur.setAttribute("x2", x(i)); cur.setAttribute("opacity", ".5");
+    tip.hidden = false; tip.textContent = `${fmtDate(days[i].d)} · ${lab(vals[i])}`;
+    tip.style.left = (x(i) / W * r.width) + "px"; tip.style.top = (y(vals[i]) / H * r.height) + "px";
+  };
+  svg.addEventListener("pointermove", move);
+  svg.addEventListener("pointerleave", () => { tip.hidden = true; cur.setAttribute("opacity", "0"); });
+}
+
+/* ---------------------------- Video detail modal ---------------------------- */
+function openVideo(pid, i) {
+  const L = lang === "es", v = VIDEOS[pid][i], all = VIDEOS[pid];
+  const vsMed = (a, b) => { if (!b) return ""; const d = (a / b - 1) * 100; return `<span class="delta ${d >= 0 ? "up" : "down"}">${d >= 0 ? "▲" : "▼"} ${fmtPct(Math.abs(d), 0)} ${L ? "vs mediana" : "vs median"}</span>`; };
+  const gpm = gpmOf(v), eng = (v.likes + v.comments) / v.views * 100;
+  const chk = checkText(v.title || "");
+  showModal(`
+    <div class="modal-head">
+      <div><h2 style="font-size:24px">${esc(v.h)}</h2><p class="small">${P(pid).name} · ${L ? "publicado" : "posted"} ${fmtDate(vidDate(v), { month: "short", day: "numeric", year: "numeric" })}</p></div>
+      <div style="display:flex;gap:12px;align-items:start"><div class="money" style="font-family:var(--mono);font-weight:600;font-size:20px;text-align:right">${fmtMoney(v.gmv)}<div class="small">GMV</div></div><button class="x" data-close aria-label="Close">✕</button></div>
+    </div>
+    <p class="quote">${esc(vidTitle(v))}</p>
+    <p style="margin-top:8px"><a class="btn primary" href="${vidUrl(v)}" target="_blank" rel="noopener">${L ? "Ver el video en TikTok ↗" : "Watch the video on TikTok ↗"}</a></p>
+    <div class="mini-kpis">
+      <div><div class="small">${L ? "Vistas" : "Views"}</div><div class="val">${fmtNum(v.views)}</div>${vsMed(v.views, median(all.map(x => x.views)))}</div>
+      <div><div class="small">${L ? "Unidades" : "Units sold"}</div><div class="val">${v.units}</div>${vsMed(v.units, median(all.map(x => x.units)))}</div>
+      <div><div class="small">${L ? "GMV por 1K vistas" : "GMV per 1K views"}</div><div class="val">${fmtMoney(gpm)}</div>${vsMed(gpm, MEDIAN_GPM[pid])}</div>
+      <div><div class="small">${L ? "Interacción" : "Engagement"}</div><div class="val">${fmtPct(eng, 2)}</div><span class="small">${v.likes} ♥ · ${v.comments} 💬</span></div>
+    </div>
+    <p class="small" style="margin-top:6px">${L ? "Comparado con la mediana de los mejores videos de" : "Compared with the median of the top"} ${P(pid).name} ${L ? "en Cruva," : "videos in Cruva,"} ${fmtDate(VIDEO_RANGE.from)}–${fmtDate(VIDEO_RANGE.to)}.</p>
+    ${v.title ? `<h3 style="margin-top:16px;font-size:18px">${L ? "Alertas en el texto del video" : "Policy flags on the caption"} <span class="pill ${chk.pct >= 50 ? "bad" : chk.pct >= 20 ? "warn" : "good"}">${chk.pct}% ${L ? "riesgo" : "risk"}</span></h3>
+    <div class="flags" style="margin-top:8px">${chk.flags.length ? chk.flags.map(flagHtml).join("") : `<p class="small">${L ? "Sin alertas en el texto." : "No flags on the caption."}</p>`}</div>` : ""}
+  `);
+}
+
+/* ---------------------------- View: scripts ---------------------------- */
+function scriptText(sc) {
+  const lines = [`${T(sc.title)} (${P(sc.p).name}, ${sc.len})`, "", `HOOK: ${T(sc.hook)}`, ""];
+  sc.beats.forEach(([t, say, show]) => { lines.push(`[${t}] ${T(say)}`); lines.push(`    (${lang === "es" ? "mostrar" : "show"}: ${T(show)})`); });
+  lines.push("", T(sc.caption));
+  return lines.join("\n");
+}
+function vScripts() {
+  const L = lang === "es";
+  const list = SCRIPTS.map((s, i) => ({ s, i })).filter(x => scriptProd === "all" || x.s.p === scriptProd);
+  return `
+  <section>
+    <div class="card-head"><h2 style="font-size:24px">${L ? "Los mejores guiones de la semana" : "This week's best scripts"}</h2><span class="small">${L ? "Basados en los mejores videos del" : "Based on top videos from"} ${fmtDate(SALES.ultra.days[0].d)}–${fmtDate(DATA_AS_OF)}</span></div>
+    <div class="chips" style="margin-bottom:8px"><button class="chip" data-sprod="all" aria-pressed="${scriptProd === "all"}">${L ? "Todos" : "All"}</button>${PRODUCTS.map(p => `<button class="chip" data-sprod="${p.id}" aria-pressed="${scriptProd === p.id}">${chipName(p)}</button>`).join("")}</div>
+    <p class="small" style="margin-bottom:14px;max-width:70ch">${L ? "Cada guion copia lo que funciona en los videos que más venden y quita lo que rompe las políticas de TikTok Shop. Cambia lo que esté entre [corchetes] por tu propia experiencia." : "Each script copies what's working in the best-selling Everboots videos and removes anything that breaks TikTok Shop policy. Replace anything in [brackets] with your own experience."}</p>
+    <div class="scripts">${list.map(({ s, i }) => `
+      <article class="script">
+        <div class="script-top">
+          <div class="row"><span class="script-num">#${i + 1} · ${P(s.p).name}</span><span class="pill good">${s.risk}% ${L ? "riesgo" : "risk"}*</span></div>
+          <h3 style="font-size:21px">${esc(T(s.title))}</h3>
+          <div class="chips"><span class="tag">⏱ ${s.len}</span><span class="tag">🎥 ${esc(T(s.fmt))}</span></div>
+        </div>
+        <div class="why"><b>${L ? "Por qué este" : "Why this one"}</b>${esc(T(s.why))}<div style="margin-top:4px">${L ? "Basado en" : "Modeled on"} ${esc(T(s.model))}</div></div>
+        <div class="hookbox"><div class="small">${L ? "Gancho" : "Hook"} · ${esc(T(s.hookShow))}</div><p>${esc(T(s.hook))}</p></div>
+        ${s.beats.map(([t, say, show]) => `<div class="beat"><div class="t">${t}</div><div>${esc(T(say))}<div class="show">🎬 ${esc(T(show))}</div></div></div>`).join("")}
+        <div class="caption"><span class="small">${L ? "Texto y hashtags" : "Caption"}</span><br>${esc(T(s.caption))}</div>
+        <div class="script-foot"><button class="btn primary" data-copyscript="${i}">${L ? "Copiar guion" : "Copy script"}</button><button class="btn" data-scriptlang="${i}">${L ? "Ver en inglés" : "Ver en español"}</button></div>
+      </article>`).join("")}</div>
+  </section>
+  ${vBuilder()}
+  <p class="small">* ${L ? "El riesgo es una estimación por palabras clave según la política de contenido de TikTok Shop. Úsalo para detectar redacción riesgosa; no es una decisión oficial de TikTok y un puntaje bajo no garantiza que un video no sea marcado." : "Risk % is a keyword estimate against TikTok Shop's content policy. Use it to spot risky wording. It's not an official TikTok decision, and a low score doesn't guarantee a video won't be flagged."}</p>`;
+}
+function buildScript() {
+  const bl = builder.lang || lang, p = P(builder.p), r = rng(builder.seed * 7919 + builder.p.length * 31 + builder.len);
+  const pick = (arr) => arr[Math.floor(r() * arr.length)];
+  const L = (o) => o[bl] ?? o.en;
+  const a = builder.angle;
+  const hookBank = a === "demo" ? HOOKS.demo[builder.p] : HOOKS[a];
+  const facts = [...p.say[bl] || p.say.en].sort(() => r() - 0.5);
+  const nFacts = builder.len === 15 ? 1 : builder.len === 30 ? 2 : 3;
+  const factShows = p.show[bl] || p.show.en;
+  const beats = [{ say: L(pick(hookBank)), show: L(SHOWS.hook) }];
+  for (let k = 0; k < nFacts; k++) beats.push({ say: facts[k] + ".", show: factShows[k % factShows.length] });
+  if (builder.len >= 30) beats.push({ say: L(pick(PERSONAL[a])), show: L(SHOWS.personal) });
+  if (builder.deal && a !== "deal") beats.push({ say: bl === "es" ? "Ahorita tiene oferta en el carrito." : "There's a deal in the cart right now.", show: L(SHOWS.cta) });
+  beats.push({ say: L(pick(CTAS)).replace("{name}", p.name), show: L(SHOWS.cta) });
+  const step = builder.len / beats.length;
+  beats.forEach((b, i) => { b.t = `${Math.round(i * step)}–${Math.round((i + 1) * step)}s`; });
+  return beats;
+}
+function beatsToText(beats) {
+  const show = (builder.lang || lang) === "es" ? "mostrar" : "show";
+  return beats.map(b => `[${b.t}] ${b.say}\n    (${show}: ${b.show})`).join("\n");
+}
+function vBuilder() {
+  const Lg = lang === "es";
+  if (!ANGLES[builder.p].includes(builder.angle)) builder.angle = ANGLES[builder.p][0];
+  const beats = buildScript();
+  if (builder.text === null) builder.text = beatsToText(beats);
+  const bl = builder.lang || lang;
+  return `
+  <section>
+    <h2 style="font-size:24px;margin-bottom:12px">${Lg ? "Arma tu propio guion" : "Build your own script"}</h2>
+    <div class="builder">
+      <div class="card form-grid">
+        <div class="field"><span class="lbl">${Lg ? "Producto" : "Product"}</span><div class="chips">${PRODUCTS.map(p => `<button class="chip" data-bp="${p.id}" aria-pressed="${builder.p === p.id}">${chipName(p)}</button>`).join("")}</div></div>
+        <div class="field"><span class="lbl">${Lg ? "Ángulo" : "Angle"}</span><div class="chips">${ANGLES[builder.p].map(a => `<button class="chip" data-ba="${a}" aria-pressed="${builder.angle === a}">${T(ANGLE_NAMES[a])}</button>`).join("")}</div></div>
+        <div class="field"><span class="lbl">${Lg ? "Duración" : "Length"}</span><div class="chips">${[15, 30, 45].map(n => `<button class="chip" data-bl="${n}" aria-pressed="${builder.len === n}">${n}s</button>`).join("")}</div></div>
+        <div class="field"><span class="lbl">${Lg ? "Idioma del guion" : "Script language"}</span><div class="chips"><button class="chip" data-blang="en" aria-pressed="${bl === "en"}">English</button><button class="chip" data-blang="es" aria-pressed="${bl === "es"}">Español</button></div></div>
+        <label style="display:flex;gap:8px;align-items:start;font-size:13.5px"><input type="checkbox" id="bdeal" ${builder.deal ? "checked" : ""} style="margin-top:3px"> ${Lg ? "Mencionar una oferta (solo si está activa en el listado)" : "Mention a deal (only if one is live on the listing)"}</label>
+        <button class="btn primary" type="button" id="bnew">🔀 ${Lg ? "Nueva versión" : "New version"}</button>
+        <p class="small">${Lg ? "Cada línea sale de los datos aprobados de Everboots, así que empieza dentro de las políticas. Edítalo para que suene a ti." : "Every line comes from Everboots' approved facts, so it starts out policy-safe. Edit it to sound like you."}</p>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><h3>${Lg ? "Tu guion" : "Your script"}</h3><div class="chips" style="margin-top:4px"><span class="tag">⏱ ${builder.len}s</span><span class="tag">${T(ANGLE_NAMES[builder.angle])}</span><span class="tag">${P(builder.p).name}</span></div></div><span class="pill good" id="brisk">3% ${Lg ? "riesgo" : "risk"}*</span></div>
+        ${beats.map(b => `<div class="beat" style="padding-inline:0"><div class="t">${b.t}</div><div>${esc(b.say)}<div class="show">🎬 ${esc(b.show)}</div></div></div>`).join("")}
+        <div class="field" style="margin-top:12px"><label for="btext">${Lg ? "Edítalo aquí" : "Edit it here"}</label><textarea id="btext" class="mono" rows="9">${esc(builder.text)}</textarea></div>
+        <div class="btn-row" style="margin-top:10px"><button class="btn dark" id="bcopy">${Lg ? "Copiar guion" : "Copy script"}</button><a class="btn" href="#check" id="bcheck">${Lg ? "Revisar a detalle" : "Check in detail"}</a></div>
+      </div>
+    </div>
+  </section>`;
+}
+function updateBuilderRisk() {
+  const el = document.getElementById("brisk"), ta = document.getElementById("btext"); if (!el || !ta) return;
+  const { pct } = checkText(ta.value);
+  el.className = "pill " + (pct >= 50 ? "bad" : pct >= 20 ? "warn" : "good");
+  el.textContent = `${pct}% ${lang === "es" ? "riesgo" : "risk"}*`;
+}
+
+/* ---------------------------- View: products ---------------------------- */
+function vProducts() {
+  const L = lang === "es", p = P(prodTab);
+  return `
+  <div class="chips">${PRODUCTS.map(x => `<button class="chip" data-ptab="${x.id}" aria-pressed="${x.id === prodTab}">${chipName(x)}${x.isNew ? (L ? " · Nuevo" : " · New") : ""}</button>`).join("")}</div>
+  <section class="card">
+    <div class="prod-head">
+      <div class="boot-ico">${bootSvg}</div>
+      <div style="min-width:0;flex:1"><h2 style="font-size:26px">${p.name} <span class="small" style="font-family:var(--mono)">${fmtPrice(p.price)} ${L ? "en TikTok Shop" : "on TikTok Shop"}</span></h2><p>${esc(T(p.short))}</p>
+      <div class="chips" style="margin-top:8px">${T(p.tags).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div></div>
+    </div>
+  </section>
+  <div class="grid-2">
+    <div class="stack">
+      <section class="spec">
+        <h3>${L ? "Ficha técnica" : "Boot facts"}</h3>
+        ${p.spec.map(([k, v]) => `<div class="spec-row"><b>${esc(T(k))}</b><span>${esc(T(v))}</span></div>`).join("")}
+        <p class="small" style="margin-top:8px">${L ? "Tomado de la página del producto en everboots.com. Revisa siempre el listado de TikTok Shop del producto que tienes." : "From the product page on everboots.com. Always check the TikTok Shop listing for the product in your hand."}</p>
+      </section>
+      <section class="card">
+        <h3>${L ? "Cómo mostrarla en cámara" : "How to show it on camera"}</h3>
+        <ul class="plain" style="margin-top:8px">${T(p.show).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      </section>
+      <section class="card">
+        <h3>${L ? "Respuestas a comentarios comunes" : "Answers to common comment questions"}</h3>
+        <div style="margin-top:6px">${QA.map(([q, a]) => `<div class="qa"><b>${esc(T(q))}</b><span class="small">${esc(T(a))}</span></div>`).join("")}</div>
+      </section>
+    </div>
+    <div class="stack">
+      <section class="card welt">
+        <h3>${L ? "Datos que puedes decir tal cual" : "Facts you can say word for word"}</h3>
+        <div style="margin-top:6px">${T(p.say).map(x => `<div class="say-row"><span>"${esc(x)}"</span><button class="copy" data-copy="${esc(x)}">${S("copy")}</button></div>`).join("")}</div>
+      </section>
+      <section class="card careful">
+        <h3>⚠️ ${L ? "Ten cuidado con" : "Be careful with"}</h3>
+        <ul class="plain" style="margin-top:8px">${T(p.careful).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+      </section>
+    </div>
+  </div>`;
+}
+
+/* ---------------------------- View: claims guide ---------------------------- */
+function vClaims() {
+  const L = lang === "es";
+  const rows = L ? [
+    ["Seguridad", "\"Casquillo de acero certificado ASTM, I/75 C/75\" (solo Tank S y Miner)", "\"Aprobada por OSHA\", \"riesgo eléctrico\", \"antiperforación\", \"de seguridad\" en botas de puntera suave"],
+    ["Agua", "\"Impermeable\" (Ultra Dry, Sierra), \"repelente al agua\" (Weldor), y muestra la prueba", "\"100% impermeable\", \"nunca te vas a mojar\", pruebas de agua con Tank o Tank S"],
+    ["Agarre", "\"Suela resistente al deslizamiento\" (Ultra Dry, Sierra), \"dibujo antideslizante\" (Weldor)", "\"Nunca te vas a resbalar\", \"a prueba de resbalones\", clasificaciones SR inventadas"],
+    ["Comodidad", "\"A mí me han resultado cómodas todo el turno\"", "\"Cura la fascitis plantar\", \"se me quitó el dolor de espalda\", \"ortopédicas\""],
+    ["Durabilidad", "\"Suela cosida Goodyear welt\", \"garantía de 90 días\"", "\"Duran para siempre\", \"indestructibles\", \"garantía de por vida\""],
+    ["Precio", "\"El precio está en el carrito naranja\", ofertas solo si están activas", "\"Igual que unas Red Wing a mitad de precio\", \"quedan solo 3\", códigos"],
+    ["Dónde comprar", "\"Está en el carrito naranja\"", "\"Link en mi bio\", \"everboots.com\", \"mándame mensaje\""]
+  ] : [
+    ["Safety", "\"ASTM-certified steel toe, I/75 C/75\" (Tank S and Miner only)", "\"OSHA approved,\" \"electrical hazard,\" \"puncture-proof,\" \"safety toe\" on soft-toe boots"],
+    ["Water", "\"Waterproof\" (Ultra Dry, Sierra), \"water repellent\" (Weldor), and show the test", "\"100% waterproof,\" \"you'll never get wet,\" water tests on Tank or Tank S"],
+    ["Grip", "\"Slip-resistant outsole\" (Ultra Dry, Sierra), \"anti-slip tread\" (Weldor)", "\"You'll never slip,\" \"slip-proof,\" made-up SR ratings"],
+    ["Comfort", "\"For me, they've been comfortable my whole shift\"", "\"Cures plantar fasciitis,\" \"my back pain is gone,\" \"orthopedic\""],
+    ["Durability", "\"Goodyear welt, the sole is stitched on,\" \"90-day guarantee\"", "\"Lasts forever,\" \"indestructible,\" \"lifetime warranty\""],
+    ["Price", "\"The price is in the orange cart,\" deals only when live", "\"Same as Red Wings for half the price,\" \"only 3 left,\" codes"],
+    ["Where to buy", "\"It's in the orange cart\"", "\"Link in bio,\" \"everboots.com,\" \"DM me\""]
+  ];
+  return `
+  <section class="card">
+    <div class="card-head"><h2>${L ? "Di esto, no aquello" : "Say this, not that"}</h2><span class="small">${L ? "Basado en la política de contenido de TikTok Shop y los listados de Everboots" : "Based on TikTok Shop's content policy and Everboots' listings"}</span></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>${L ? "Tema" : "Topic"}</th><th>${L ? "✓ Di esto" : "✓ Say this"}</th><th>${L ? "✕ No digas" : "✕ Don't say"}</th></tr></thead>
+      <tbody>${rows.map(([a, b, c]) => `<tr><td><b>${esc(a)}</b></td><td class="yes">${esc(b)}</td><td class="no">${esc(c)}</td></tr>`).join("")}</tbody>
+    </table></div>
+  </section>
+  <div class="grid-2">
+    <section class="card">
+      <h3>${L ? "Qué boot es qué" : "Which boot is which"}</h3>
+      <div class="table-wrap" style="margin-top:8px"><table>
+        <thead><tr><th>${L ? "Bota" : "Boot"}</th><th>${L ? "Puntera" : "Toe"}</th><th>${L ? "Agua" : "Water"}</th><th>${L ? "Anchos" : "Widths"}</th></tr></thead>
+        <tbody>
+          <tr><td><b>Ultra Dry</b></td><td>${L ? "Suave" : "Soft"}</td><td>${L ? "Impermeable" : "Waterproof"}</td><td>D</td></tr>
+          <tr><td><b>Tank S</b></td><td>${L ? "Acero ASTM" : "ASTM steel"}</td><td>${L ? "No" : "No"}</td><td>D</td></tr>
+          <tr><td><b>Tank</b></td><td>${L ? "Suave" : "Soft"}</td><td>${L ? "No" : "No"}</td><td>D, E</td></tr>
+          <tr><td><b>Weldor</b></td><td>${L ? "Moc suave" : "Soft moc"}</td><td>${L ? "Repelente" : "Repellent"}</td><td>D, EE</td></tr>
+          <tr><td><b>Miner</b></td><td>${L ? "Acero ASTM" : "ASTM steel"}</td><td>${L ? "No dice" : "Not stated"}</td><td>D, EE</td></tr>
+          <tr><td><b>Sierra</b></td><td>${L ? "Suave" : "Soft"}</td><td>${L ? "Impermeable" : "Waterproof"}</td><td>${L ? "Regular" : "Regular"}</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+    <div class="stack">
+      <section class="card welt">
+        <h3>${L ? "La regla del calcetín seco" : "The dry-sock rule"}</h3>
+        <p style="margin-top:6px">${L ? "Mostrar vende más que decir. Una prueba en cámara con un resultado real convence más que cualquier claim, y no te mete en problemas." : "Showing beats saying. A test on camera with a real result convinces more than any claim, and it can't get you in trouble."}</p>
+      </section>
+      <section class="card">
+        <h3>${L ? "Etiqueta de contenido comercial" : "Commercial content label"}</h3>
+        <p style="margin-top:6px">${L ? "Actívala en cada video de Everboots, ya sea con producto gratis, comisión o retainer. Nunca digas \"no es patrocinado\"." : "Turn it on for every Everboots video, whether you got free product, commission or a retainer. Never say \"not sponsored.\""}</p>
+      </section>
+    </div>
+  </div>`;
+}
+
+/* ---------------------------- View: checker ---------------------------- */
+function flagHtml(f) {
+  const L = lang === "es";
+  const sevName = { high: L ? "alto" : "high", med: L ? "medio" : "medium", low: L ? "bajo" : "low" }[f.r.sev];
+  return `<div class="flag ${f.r.sev === "high" ? "high" : f.r.sev === "low" ? "low" : ""}">
+    <div class="flag-head"><b>${esc(T(f.r.name))}</b><span class="pill ${f.r.sev === "high" ? "bad" : "warn"}">${sevName}</span></div>
+    <div class="small">${f.hits.map(h => `"${esc(h)}"`).join(", ")}</div>
+    <div>${esc(T(f.r.why))}</div>
+    <div class="fix"><b>${L ? "Arreglo:" : "Fix:"}</b> ${esc(T(f.r.fix))}</div>
+    <div class="small">${L ? "Sección:" : "Policy section:"} ${esc(T(f.r.section))} · TikTok Shop Content Policy</div>
+  </div>`;
+}
+function vCheck() {
+  const L = lang === "es";
+  const text = checkerEdited ? checkerText.custom : T(checkerText);
+  return `
+  <div class="grid-2" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+    <section class="card">
+      <div class="field"><label for="ctext">${L ? "Tu guion o texto" : "Your script or caption"} <span class="opt">${L ? "— pega lo que vas a decir o escribir" : "— paste what you'll say or write"}</span></label>
+      <textarea id="ctext" rows="9">${esc(text)}</textarea></div>
+      <div class="btn-row" style="margin-top:10px"><button class="btn" id="cclear">${L ? "Borrar" : "Clear"}</button><button class="btn" id="csample">${L ? "Cargar ejemplo" : "Load example"}</button></div>
+      <p class="small" style="margin-top:10px">${L ? "Esta revisión corre en tu navegador y busca palabras que suelen hacer que TikTok Shop marque videos de botas. Nada de lo que escribes se envía a ningún lado." : "This check runs in your browser and looks for wording that commonly gets boot videos flagged on TikTok Shop. Nothing you type is sent anywhere."}</p>
+    </section>
+    <section class="card">
+      <h3>${L ? "Probabilidad de ser marcado" : "Violation likelihood"}</h3>
+      <div class="gauge" id="gauge"></div>
+      <div class="flags" id="cflags"></div>
+    </section>
+  </div>`;
+}
+function updateChecker() {
+  const ta = document.getElementById("ctext"); if (!ta) return;
+  const L = lang === "es", { flags, pct } = checkText(ta.value);
+  const col = pct >= 50 ? "var(--bad)" : pct >= 20 ? "var(--warn)" : "var(--good)";
+  const verdict = !ta.value.trim() ? (L ? "Pega un guion para revisarlo" : "Paste a script to check it")
+    : pct >= 70 ? (L ? "Muy probable que lo marquen" : "Very likely to be flagged") : pct >= 40 ? (L ? "Riesgo alto" : "High risk") : pct >= 20 ? (L ? "Algo de riesgo" : "Some risk") : (L ? "Se ve bien" : "Looks good");
+  const R = 80, cx = 110, cy = 100, ang = Math.PI * (1 - pct / 100);
+  const ex = cx + R * Math.cos(ang), ey = cy - R * Math.sin(ang);
+  document.getElementById("gauge").innerHTML = `
+    <svg viewBox="0 0 220 112" aria-hidden="true">
+      <path d="M30,100 A80,80 0 0 1 190,100" fill="none" stroke="var(--surface-2)" stroke-width="16" stroke-linecap="round"/>
+      ${pct > 0 ? `<path d="M30,100 A80,80 0 0 1 ${ex.toFixed(1)},${ey.toFixed(1)}" fill="none" stroke="${col}" stroke-width="16" stroke-linecap="round"/>` : ""}
+    </svg>
+    <div class="num" style="color:${col}">${pct}<small>%</small></div>
+    <div class="verdict" style="color:${col}">${verdict}</div>
+    <div class="small">${flags.length} ${L ? (flags.length === 1 ? "área de política activada" : "áreas de política activadas") : (flags.length === 1 ? "policy area triggered" : "policy areas triggered")}</div>`;
+  document.getElementById("cflags").innerHTML = flags.map(flagHtml).join("");
+}
+
+/* ---------------------------- View: updates ---------------------------- */
+function vUpdates() {
+  const L = lang === "es";
+  const official = [
+    ["https://seller-us.tiktok.com/university/essay?knowledge_id=2244964886103809&lang=en", L ? "Política de marketing de afiliados" : "Affiliate Marketing Policy"],
+    ["https://seller-us.tiktok.com/university/home", L ? "TikTok Shop Academy (todas las políticas)" : "TikTok Shop Academy (all policies)"],
+    ["https://www.tiktok.com/community-guidelines", L ? "Normas de la comunidad de TikTok" : "TikTok Community Guidelines"]
+  ];
+  return `<section class="card welt">
+    <div class="card-head"><h2>${L ? "Reglas oficiales de TikTok Shop" : "Official TikTok Shop rules"}</h2></div>
+    <p class="small" style="margin-bottom:8px">${L ? "Las fuentes originales. Si algo aquí no coincide con ellas, gana la versión de TikTok." : "The source documents. If anything on this page disagrees with them, TikTok's version wins."}</p>
+    <ul class="plain">${official.map(([u, t]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)} ↗</a></li>`).join("")}</ul>
+  </section>
+  <section class="card">${UPDATES.map(u => `
+    <div class="update"><p class="date">${fmtDate(u.date, { month: "long", day: "numeric", year: "numeric" })} <span class="pill ${u.cls}">${esc(T(u.tag))}</span></p>
+    <h3 style="font-size:20px">${esc(T(u.title))}</h3><p>${esc(T(u.body))}</p>
+    ${u.src ? `<p class="small"><a href="${u.src}" target="_blank" rel="noopener">${L ? "Fuente" : "Source"} ↗</a></p>` : ""}</div>`).join("")}</section>`;
+}
+
+/* ---------------------------- Retainer form ---------------------------- */
+function openApply() {
+  const L = lang === "es";
+  const sel = (id, opts) => `<select id="${id}" required><option value="">${L ? "Elige..." : "Choose..."}</option>${opts.map(o => `<option>${esc(o)}</option>`).join("")}</select>`;
+  showModal(`
+    <div class="modal-head"><div><h2 style="font-size:24px">${S("applyBtn")}</h2><p class="small">${L ? "Cuéntanos de ti y de tu contenido. El equipo de Everboots revisa cada solicitud y responde por correo." : "Tell us about you and your content. The Everboots team reviews every application and replies by email."}</p></div><button class="x" data-close aria-label="Close">✕</button></div>
+    <form id="applyForm" class="form2" novalidate>
+      <div class="field"><label for="a_name">${L ? "Nombre completo" : "Full name"}</label><input id="a_name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="a_handle">${L ? "Usuario de TikTok" : "TikTok handle"}</label><input id="a_handle" type="text" required placeholder="@yourhandle"></div>
+      <div class="field"><label for="a_email">Email</label><input id="a_email" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="a_phone">${L ? "Teléfono o WhatsApp" : "Phone or WhatsApp"} <span class="opt">${L ? "— opcional" : "— optional"}</span></label><input id="a_phone" type="text" autocomplete="tel"></div>
+      <div class="field"><label for="a_followers">${L ? "Seguidores" : "Followers"}</label>${sel("a_followers", ["< 1K", "1K–10K", "10K–50K", "50K–100K", "100K–500K", "500K+"])}</div>
+      <div class="field"><label for="a_views">${L ? "Vistas típicas por video" : "Typical views per video"}</label>${sel("a_views", ["< 1K", "1K–5K", "5K–20K", "20K–100K", "100K+"])}</div>
+      <div class="field"><label for="a_lang">${L ? "Idiomas en los que publicas" : "Languages you post in"}</label>${sel("a_lang", L ? ["Inglés", "Español", "Inglés y español"] : ["English", "Spanish", "English and Spanish"])}</div>
+      <div class="field"><label for="a_freq">${L ? "Qué tan seguido puedes publicar Everboots" : "How often you can post Everboots"}</label>${sel("a_freq", L ? ["1–2 por semana", "3–5 por semana", "Diario"] : ["1–2 a week", "3–5 a week", "Daily"])}</div>
+      <div class="field"><label for="a_prod">${L ? "Botas que promoverías" : "Boots you'd promote"}</label>${sel("a_prod", ["Ultra Dry", "Tank S", "Weldor", "Sierra", L ? "Todas" : "All of them"])}</div>
+      <div class="field"><label for="a_trade">${L ? "Tu oficio o nicho" : "Your trade or niche"} <span class="opt">${L ? "— opcional" : "— optional"}</span></label><input id="a_trade" type="text" placeholder="${L ? "Techos, soldadura, almacén..." : "Roofing, welding, warehouse..."}"></div>
+      <div class="field full"><label for="a_link">${L ? "Link a tu mejor video de botas o trabajo" : "Link to your best boot or work video"} <span class="opt">${L ? "— opcional" : "— optional"}</span></label><input id="a_link" type="url" placeholder="https://www.tiktok.com/@.../video/..."></div>
+      <div class="field"><label for="a_live">${L ? "¿Haces LIVE?" : "Do you go LIVE?"} <span class="opt">${L ? "— opcional" : "— optional"}</span></label>${sel("a_live", L ? ["Sí, seguido", "A veces", "No"] : ["Yes, regularly", "Sometimes", "No"])}</div>
+      <div class="field full"><label for="a_why">${L ? "¿Por qué deberíamos trabajar juntos?" : "Why should we work together?"}</label><textarea id="a_why" rows="4" required placeholder="${L ? "Tu audiencia, tu estilo, resultados que has tenido con Everboots o marcas de calzado..." : "Your audience, your content style, results you've had with Everboots or other footwear..."}"></textarea></div>
+      <label class="full" style="display:flex;gap:8px;align-items:start;font-size:13.5px"><input type="checkbox" id="a_agree" required style="margin-top:3px"> ${L ? "Acepto seguir las políticas de TikTok Shop y la guía de claims de Everboots en todo el contenido." : "I agree to follow TikTok Shop policy and Everboots' claims guide in all content."}</label>
+      <p class="full small" id="a_err" role="alert" style="color:var(--bad)"></p>
+      <div class="full btn-row"><button class="btn primary" type="submit">${L ? "Enviar solicitud" : "Submit application"}</button><button class="btn" type="button" data-close>${L ? "Cancelar" : "Cancel"}</button></div>
+    </form>`);
+  document.getElementById("applyForm").addEventListener("submit", submitApply);
+}
+async function submitApply(e) {
+  e.preventDefault();
+  const L = lang === "es", f = e.target, err = document.getElementById("a_err");
+  const bad = [...f.querySelectorAll("[required]")].find(el => el.type === "checkbox" ? !el.checked : !el.value.trim() || (el.type === "email" && !/^\S+@\S+\.\S+$/.test(el.value)));
+  if (bad) { err.textContent = L ? "Completa los campos marcados y revisa tu correo." : "Fill in the required fields and check your email address."; bad.focus(); return; }
+  const g = (id) => document.getElementById(id).value.trim();
+  const data = { submitted: new Date().toISOString(), name: g("a_name"), handle: g("a_handle"), email: g("a_email"), phone: g("a_phone"), followers: g("a_followers"), views: g("a_views"), languages: g("a_lang"), frequency: g("a_freq"), products: g("a_prod"), trade: g("a_trade"), link: g("a_link"), live: g("a_live"), why: g("a_why"), status: "New" };
+  if (APPLY_ENDPOINT) {
+    try {
+      await fetch(APPLY_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+      showModal(`<div class="modal-head"><h2 style="font-size:24px">${L ? "Solicitud enviada" : "Application sent"}</h2><button class="x" data-close aria-label="Close">✕</button></div><p>${L ? "Gracias. El equipo de Everboots te responderá por correo a" : "Thanks. The Everboots team will reply by email to"} <b>${esc(data.email)}</b>.</p>`);
+      return;
+    } catch (_) { /* fall through to the copyable version */ }
+  }
+  const text = Object.entries(data).filter(([k]) => k !== "status").map(([k, v]) => `${k}: ${v || "—"}`).join("\n");
+  showModal(`<div class="modal-head"><h2 style="font-size:24px">${L ? "Tu solicitud está lista" : "Your application is ready"}</h2><button class="x" data-close aria-label="Close">✕</button></div>
+    <p>${L ? "Copia esto y envíalo al equipo de Everboots por el canal donde te contactaron (Discord, correo o mensaje de TikTok)." : "Copy this and send it to the Everboots team wherever they reached you (Discord, email or TikTok message)."}</p>
+    <textarea id="appText" class="mono" rows="12" readonly style="margin-top:10px">${esc(text)}</textarea>
+    <div class="btn-row" style="margin-top:10px"><button class="btn primary" id="appCopy">${L ? "Copiar solicitud" : "Copy application"}</button><button class="btn" data-close>${L ? "Listo" : "Done"}</button></div>`);
+  document.getElementById("appCopy").addEventListener("click", () => copyText(text, document.getElementById("appText")));
+}
+
+/* ---------------------------- Modal ---------------------------- */
+let lastFocus = null;
+function showModal(html) {
+  const root = document.getElementById("modalRoot");
+  if (!root.firstChild) lastFocus = document.activeElement;
+  root.innerHTML = `<div class="modal-back" data-back><div class="modal" role="dialog" aria-modal="true">${html}</div></div>`;
+  const m = root.querySelector(".modal"); (m.querySelector("input, select, textarea, button") || m).focus();
+}
+function closeModal() { document.getElementById("modalRoot").innerHTML = ""; if (lastFocus) lastFocus.focus(); }
+
+/* ---------------------------- Events ---------------------------- */
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("button, a");
+  if (e.target.matches("[data-back]")) { closeModal(); return; }
+  if (!t) return;
+  const d = t.dataset;
+  if (d.view) { e.preventDefault(); closeModal(); go(d.view); return; }
+  if (d.close !== undefined) { closeModal(); return; }
+  if (d.apply !== undefined || t.id === "applyTop") { openApply(); return; }
+  if (d.copy) { copyText(d.copy); return; }
+  if (d.focus) { sellProd = prodTab = "ultra"; scriptProd = "ultra"; builder.p = "ultra"; builder.text = null; go(d.focus); return; }
+  if (d.video) { const [pid, i] = d.video.split(":"); openVideo(pid, +i); return; }
+  if (d.sell) { sellProd = d.sell; render(); return; }
+  if (d.metric) { metric = d.metric; render(); return; }
+  if (d.sprod) { scriptProd = d.sprod; render(); return; }
+  if (d.copyscript) { copyText(scriptText(SCRIPTS[+d.copyscript])); return; }
+  if (d.scriptlang) { setLang(lang === "en" ? "es" : "en"); return; }
+  if (d.ptab) { prodTab = d.ptab; render(); return; }
+  if (d.bp) { builder.p = d.bp; builder.text = null; render(); return; }
+  if (d.ba) { builder.angle = d.ba; builder.text = null; render(); return; }
+  if (d.bl) { builder.len = +d.bl; builder.text = null; render(); return; }
+  if (d.blang) { builder.lang = d.blang; builder.text = null; render(); return; }
+  if (t.id === "bnew") { builder.seed++; builder.text = null; render(); return; }
+  if (t.id === "bcopy") { copyText(document.getElementById("btext").value, document.getElementById("btext")); return; }
+  if (t.id === "bcheck") { e.preventDefault(); checkerEdited = true; checkerText.custom = document.getElementById("btext").value; go("check"); return; }
+  if (t.id === "cclear") { checkerEdited = true; checkerText.custom = ""; document.getElementById("ctext").value = ""; updateChecker(); document.getElementById("ctext").focus(); return; }
+  if (t.id === "csample") { checkerEdited = false; render(); return; }
+  if (t.id === "langEn") { setLang("en"); return; }
+  if (t.id === "langEs") { setLang("es"); return; }
+  if (t.id === "themeBtn") {
+    const root = document.documentElement;
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark"; store.set("eb-theme", root.dataset.theme);
+    if (view === "selling") drawChart();
+  }
+});
+document.addEventListener("input", (e) => {
+  if (e.target.id === "ctext") { checkerEdited = true; checkerText.custom = e.target.value; updateChecker(); }
+  if (e.target.id === "btext") { builder.text = e.target.value; updateBuilderRisk(); }
+});
+document.addEventListener("change", (e) => { if (e.target.id === "bdeal") { builder.deal = e.target.checked; builder.text = null; render(); } });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && document.getElementById("modalRoot").firstChild) closeModal(); });
+window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (VIEWS.includes(h) && h !== view) { view = h; render(); } });
+function setLang(l) { lang = l; store.set("eb-lang", l); render(); }
+
+render();
+</script>
+
+</body></html>

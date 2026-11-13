@@ -297,7 +297,7 @@ footer { padding-block: 20px 36px; color: var(--muted); font-size: 12.5px; borde
 ------------------------------------------------------------------- */
 const APPLY_ENDPOINT = "";
 const SHOW_DOLLARS = true;
-const DATA_AS_OF = new Date(2026, 9, 31); // Oct 31, 2026
+const DATA_AS_OF = new Date(2026, 10, 11); // Nov 11, 2026
 const EXAMPLE_DATA = true;
 
 let lang = "en";
@@ -442,18 +442,16 @@ for (const p of PRODUCTS) {
   SALES[p.id] = { days, gmv: sum("gmv"), units: sum("units"), views: sum("views"), posted: sum("posted"), creators: Math.round(sum("posted") * 0.46), ch: c.ch };
 }
 
-/* Top videos from Cruva (Everboots shop, videos tab, Oct 3 – Nov 1, 2026). Update these rows from Cruva each week. */
-const VIDEO_RANGE = { from: new Date(2026, 9, 3), to: new Date(2026, 10, 1) };
+/* Top videos from Cruva (Everboots shop, videos tab, Oct 13 – Nov 11, 2026). Update these rows from Cruva each week. */
+const VIDEO_RANGE = { from: new Date(2026, 9, 13), to: new Date(2026, 10, 11) };
 const VIDEOS = {
   ultra: [
-    { h: "@dulcecandy840", posted: "2026-07-23", id: "7665861661785640205", views: 112323, gmv: 3473.49, units: 41, likes: 278, comments: 11, title: "Botas de trabajo EVERBOOTS #dealsforyoudays #workboots #waterproofboots #everbootsultradrywaterproof" },
-    { h: "@albita_rz", posted: "2026-07-17", id: "7663666584484891918", views: 167879, gmv: 3284.79, units: 38, likes: 242, comments: 10, title: "🚨🚨Ever Boots Ultra Dry Waterproof Work Boots for Men Full Grain Leather Lightweight, Slip-Resistant" },
-    { h: "@athzirinahi", posted: "2026-03-10", id: "7615767790145867021", views: 17968, gmv: 1477.92, units: 17, likes: 57, comments: 6, title: "Botas de alta calidad de travajo para hombre impermeables cómodas suaves ligeras y antideslizantes" },
-    { h: "@dulcecandy840", posted: "2026-09-04", id: "7681710255641857294", views: 30805, gmv: 904.80, units: 11, likes: 65, comments: 3, title: "Botas de trabajo para hombres, Water Proof #toktokshopblackfriday #merrychristmas #backtoschool" },
-    { h: "@dulcecandy840", posted: "2026-06-11", id: "7650315900117060895", views: 33718, gmv: 895.37, units: 11, likes: 101, comments: 6, title: "Botas de trabajo EverBoots #dealsforyoudays #creatorpick #starterpicks #everbootsultradrywaterproof" },
-    { h: "@albita_rz", posted: "2026-06-25", id: "7655535253238402317", views: 18714, gmv: 615.89, units: 7, likes: 52, comments: 1, title: "Botas hechas para ti, que trabajas por más de ocho horas, son botas livianas hechas de cuero..." },
-    { h: "@ismary.orellana", posted: "2026-05-10", id: "7638390518799469838", views: 9379, gmv: 588.24, units: 7, likes: 68, comments: 1, title: "Botas de trabajo para hombre, antideslizantes, contra el agua, cómodas y de buena calidad" },
-    { h: "@latiendadelasfamilias", posted: "2026-08-28", id: "7679171659516955917", views: 9057, gmv: 570.77, units: 8, likes: 27, comments: 2, title: "" }
+    { h: "@albita_rz", posted: "2026-07-17", id: "7663666584484891918", views: 167572, gmv: 3379.18, units: 40, likes: 278, comments: 13, title: "🚨🚨Ever Boots Ultra Dry Waterproof Work Boots for Men Full Grain Leather Lightweight, Slip-Resistant" },
+    { h: "@dulcecandy840", posted: "2026-07-23", id: "7665861661785640205", views: 77070, gmv: 2307.64, units: 27, likes: 166, comments: 7, title: "Botas de trabajo EVERBOOTS #dealsforyoudays #workboots #waterproofboots #everbootsultradrywaterproof" },
+    { h: "@athzirinahi", posted: "2026-03-10", id: "7615767790145867021", views: 12593, gmv: 1200.77, units: 14, likes: 45, comments: 5, title: "Botas de alta calidad de travajo para hombre impermeables cómodas suaves ligeras y antideslizantes" },
+    { h: "@dulcecandy840", posted: "2026-06-11", id: "7650315900117060895", views: 36888, gmv: 953.32, units: 12, likes: 103, comments: 2, title: "Botas de trabajo EverBoots #dealsforyoudays #creatorpick #starterpicks #everbootsultradrywaterproof" },
+    { h: "@dulcecandy840", posted: "2026-09-04", id: "7681710255641857294", views: 29261, gmv: 907.93, units: 11, likes: 58, comments: 0, title: "Botas de trabajo para hombres, Water Proof #toktokshopblackfriday #merrychristmas #backtoschool" },
+    { h: "@dulcecandy840", posted: "2026-10-15", id: "7697043779236171038", views: 42175, gmv: 885.03, units: 11, likes: 99, comments: 7, title: "Botas de trabajo para hombres sin punta de acero #dealsforyoudays #merrychristmas" }
   ],
   tanks: [], weldor: [], sierra: []
 };
